@@ -6,14 +6,13 @@ window.DATA = {
       "id": "10-easy",
       "para": "10",
       "level": "easy",
-      "kicker": "მარტივი",
+      "kicker": "პირველი",
       "title": "რიცხვითი და ასოითი გამოსახულება",
       "standard": "მათ.V.6",
       "about": "გამოთვლა, გამოსახულების ჩაწერა, გამარტივება და მნიშვნელობა.",
       "items": [
         {
           "say": "გამოთვალე.",
-          "answer": "16",
           "lines": 6,
           "center": true,
           "box": true,
@@ -22,7 +21,6 @@ window.DATA = {
         },
         {
           "say": "გამოთვალე.",
-          "answer": "24",
           "lines": 6,
           "center": true,
           "box": true,
@@ -31,7 +29,6 @@ window.DATA = {
         },
         {
           "say": "გამოთვალე.",
-          "answer": "14",
           "lines": 6,
           "center": true,
           "box": true,
@@ -40,7 +37,6 @@ window.DATA = {
         },
         {
           "say": "გამოთვალე.",
-          "answer": "42",
           "lines": 6,
           "center": true,
           "box": true,
@@ -49,7 +45,6 @@ window.DATA = {
         },
         {
           "say": "გამოთვალე.",
-          "answer": "5",
           "lines": 6,
           "center": true,
           "box": true,
@@ -58,7 +53,6 @@ window.DATA = {
         },
         {
           "say": "გამოთვალე.",
-          "answer": "8",
           "lines": 6,
           "center": true,
           "box": true,
@@ -67,27 +61,22 @@ window.DATA = {
         },
         {
           "say": "მხოლოდ ჩაწერე გამოსახულება. ნუ გამოთვლი.",
-          "answer": "(7 + 5) : 3",
           "lines": 3,
           "center": false,
           "box": true,
           "task": "7-ს დაუმატე 5. მიღებულ რიცხვს გაყავი 3-ზე.",
-          "note": "ფრჩხილები საჭიროა, თორემ ჯერ გაიყოფა.",
           "n": 7
         },
         {
           "say": "მხოლოდ ჩაწერე გამოსახულება. ნუ გამოთვლი.",
-          "answer": "4 × 6 + 8",
           "lines": 3,
           "center": false,
           "box": true,
           "task": "4 გავამრავლოთ 6-ზე და მივუმატოთ 8.",
-          "note": "(4 × 6) + 8-ც სწორია.",
           "n": 8
         },
         {
           "say": "მხოლოდ ჩაწერე გამოსახულება. ნუ გამოთვლი.",
-          "answer": "30 − 12 × 3",
           "lines": 3,
           "center": false,
           "box": true,
@@ -96,37 +85,30 @@ window.DATA = {
         },
         {
           "say": "მხოლოდ ჩაწერე გამოსახულება. ნუ გამოთვლი.",
-          "answer": "(9 + 6) : 5",
           "lines": 3,
           "center": false,
           "box": true,
           "task": "ჯერ შევკრიბოთ 9 და 6, შემდეგ გავყოთ 5-ზე.",
-          "note": "ფრჩხილები საჭიროა.",
           "n": 10
         },
         {
           "say": "მხოლოდ ჩაწერე გამოსახულება. ნუ გამოთვლი.",
-          "answer": "8 × (2 + 5)",
           "lines": 3,
           "center": false,
           "box": true,
           "task": "8 გავამრავლოთ 2-ისა და 5-ის ჯამზე.",
-          "note": "ფრჩხილები საჭიროა.",
           "n": 11
         },
         {
           "say": "მხოლოდ ჩაწერე გამოსახულება. ნუ გამოთვლი.",
-          "answer": "100 : 4 − 7",
           "lines": 3,
           "center": false,
           "box": true,
           "task": "100 გავყოთ 4-ზე და გამოვაკლოთ 7.",
-          "note": "(100 : 4) − 7-ც სწორია.",
           "n": 12
         },
         {
           "say": "გაამარტივე.",
-          "answer": "a + 10",
           "lines": 4,
           "center": true,
           "box": true,
@@ -135,7 +117,6 @@ window.DATA = {
         },
         {
           "say": "გაამარტივე.",
-          "answer": "x + 10",
           "lines": 4,
           "center": true,
           "box": true,
@@ -144,47 +125,38 @@ window.DATA = {
         },
         {
           "say": "გაამარტივე.",
-          "answer": "6y",
           "lines": 4,
           "center": true,
           "box": true,
           "task": "2 × y × 3 =",
-          "note": "6 × y-ც სწორია.",
           "n": 15
         },
         {
           "say": "გაამარტივე.",
-          "answer": "4m",
           "lines": 4,
           "center": true,
           "box": true,
           "task": "m + m + m + m =",
-          "note": "4 × m-ც სწორია.",
           "n": 16
         },
         {
           "say": "გაამარტივე.",
-          "answer": "5b",
           "lines": 4,
           "center": true,
           "box": true,
           "task": "7 × b − 2 × b =",
-          "note": "5 × b-ც სწორია.",
           "n": 17
         },
         {
           "say": "გაამარტივე.",
-          "answer": "2a + 6",
           "lines": 4,
           "center": true,
           "box": true,
           "task": "2 × (a + 3) =",
-          "note": "2 × a + 6-ც სწორია.",
           "n": 18
         },
         {
           "say": "იპოვე მნიშვნელობა.",
-          "answer": "13",
           "lines": 5,
           "center": true,
           "box": true,
@@ -193,7 +165,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე მნიშვნელობა.",
-          "answer": "12",
           "lines": 5,
           "center": true,
           "box": true,
@@ -202,7 +173,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე მნიშვნელობა.",
-          "answer": "13",
           "lines": 5,
           "center": true,
           "box": true,
@@ -211,7 +181,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე მნიშვნელობა.",
-          "answer": "6",
           "lines": 5,
           "center": true,
           "box": true,
@@ -220,7 +189,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე მნიშვნელობა.",
-          "answer": "13",
           "lines": 5,
           "center": true,
           "box": true,
@@ -229,7 +197,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე მნიშვნელობა.",
-          "answer": "7",
           "lines": 5,
           "center": true,
           "box": true,
@@ -238,17 +205,14 @@ window.DATA = {
         },
         {
           "say": "ჩაწერე გამოსახულება.",
-          "answer": "12 × n",
           "lines": 3,
           "center": false,
           "box": true,
           "task": "ერთ რვეულში 12 ფურცელია. n რვეულში რამდენი ფურცელია?",
-          "note": "12n ან n × 12-ც სწორია.",
           "n": 25
         },
         {
           "say": "ჩაწერე გამოსახულება.",
-          "answer": "a + 5",
           "lines": 3,
           "center": false,
           "box": true,
@@ -257,7 +221,6 @@ window.DATA = {
         },
         {
           "say": "ჩაწერე გამოსახულება.",
-          "answer": "40 − b",
           "lines": 3,
           "center": false,
           "box": true,
@@ -266,7 +229,6 @@ window.DATA = {
         },
         {
           "say": "ჩაწერე გამოსახულება.",
-          "answer": "k : 3",
           "lines": 3,
           "center": false,
           "box": true,
@@ -275,7 +237,6 @@ window.DATA = {
         },
         {
           "say": "ჩაწერე გამოსახულება.",
-          "answer": "8 × t + 2",
           "lines": 3,
           "center": false,
           "box": true,
@@ -284,12 +245,10 @@ window.DATA = {
         },
         {
           "say": "ჩაწერე გამოსახულება.",
-          "answer": "2 × x + 4",
           "lines": 3,
           "center": false,
           "box": true,
           "task": "რიცხვი x გავაორმაგეთ და დავუმატეთ 4.",
-          "note": "2x + 4-ც სწორია.",
           "n": 30
         }
       ]
@@ -298,14 +257,13 @@ window.DATA = {
       "id": "10-hard",
       "para": "10",
       "level": "hard",
-      "kicker": "რთული",
+      "kicker": "მეორე",
       "title": "რიცხვითი და ასოითი გამოსახულება",
       "standard": "მათ.V.6",
       "about": "შედეგი მოცემულია. უკან ორი ან სამი ნაბიჯით უნდა დაბრუნდე.",
       "items": [
         {
           "say": "იპოვე გამოტოვებული რიცხვი.",
-          "answer": "10",
           "lines": 6,
           "center": true,
           "box": true,
@@ -314,7 +272,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე გამოტოვებული რიცხვი.",
-          "answer": "8",
           "lines": 6,
           "center": true,
           "box": true,
@@ -323,7 +280,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე გამოტოვებული რიცხვი.",
-          "answer": "42",
           "lines": 6,
           "center": true,
           "box": true,
@@ -332,7 +288,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე გამოტოვებული რიცხვი.",
-          "answer": "9",
           "lines": 6,
           "center": true,
           "box": true,
@@ -341,7 +296,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე გამოტოვებული რიცხვი.",
-          "answer": "5",
           "lines": 6,
           "center": true,
           "box": true,
@@ -350,7 +304,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე გამოტოვებული რიცხვი.",
-          "answer": "20",
           "lines": 6,
           "center": true,
           "box": true,
@@ -359,7 +312,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე გამოტოვებული რიცხვი.",
-          "answer": "8",
           "lines": 6,
           "center": true,
           "box": true,
@@ -368,7 +320,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე გამოტოვებული რიცხვი.",
-          "answer": "5",
           "lines": 6,
           "center": true,
           "box": true,
@@ -377,7 +328,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე ასოს მნიშვნელობა.",
-          "answer": "11",
           "lines": 6,
           "center": true,
           "box": true,
@@ -386,7 +336,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე ასოს მნიშვნელობა.",
-          "answer": "12",
           "lines": 6,
           "center": true,
           "box": true,
@@ -395,7 +344,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე ასოს მნიშვნელობა.",
-          "answer": "5",
           "lines": 6,
           "center": true,
           "box": true,
@@ -404,7 +352,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე ასოს მნიშვნელობა.",
-          "answer": "50",
           "lines": 6,
           "center": true,
           "box": true,
@@ -413,7 +360,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე ასოს მნიშვნელობა.",
-          "answer": "7",
           "lines": 6,
           "center": true,
           "box": true,
@@ -422,7 +368,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე ასოს მნიშვნელობა.",
-          "answer": "13",
           "lines": 6,
           "center": true,
           "box": true,
@@ -431,17 +376,14 @@ window.DATA = {
         },
         {
           "say": "იპოვე გამოტოვებული რიცხვი.",
-          "answer": "5",
           "lines": 6,
           "center": true,
           "box": true,
           "task": "4 × (a + □) + 2 × a = 6 × a + 20",
-          "note": "ჯერ გახსენი ფრჩხილები: 4a + 4×□ + 2a = 6a + 20.",
           "n": 15
         },
         {
           "say": "იპოვე გამოტოვებული რიცხვი.",
-          "answer": "9",
           "lines": 6,
           "center": true,
           "box": true,
@@ -450,7 +392,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე გამოტოვებული რიცხვი.",
-          "answer": "3",
           "lines": 5,
           "center": true,
           "box": true,
@@ -459,7 +400,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე გამოტოვებული რიცხვი.",
-          "answer": "5",
           "lines": 6,
           "center": true,
           "box": true,
@@ -468,7 +408,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე გამოტოვებული რიცხვი.",
-          "answer": "12",
           "lines": 6,
           "center": true,
           "box": true,
@@ -477,7 +416,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე გამოტოვებული რიცხვი.",
-          "answer": "7",
           "lines": 5,
           "center": true,
           "box": true,
@@ -486,7 +424,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე რიცხვი.",
-          "answer": "5",
           "lines": 5,
           "center": false,
           "box": true,
@@ -495,37 +432,30 @@ window.DATA = {
         },
         {
           "say": "იპოვე რიცხვი.",
-          "answer": "20",
           "lines": 5,
           "center": false,
           "box": true,
           "task": "კალათაში ვაშლი იდო. ჯერ ნახევარი შეჭამეს, შემდეგ კიდევ 4, და დარჩა 6. თავიდან რამდენი ვაშლი იყო?",
-          "note": "4-ის შემდეგ 6 დარჩა, ანუ ნახევარი 10 იყო. თავიდან 20.",
           "n": 22
         },
         {
           "say": "იპოვე რიცხვი.",
-          "answer": "7",
           "lines": 5,
           "center": false,
           "box": true,
           "task": "რიცხვი გავაორმაგეთ, დავუმატეთ 8 და მიღებული გავყავით 2-ზე. მივიღეთ 11. თავიდან რომელი რიცხვი იყო?",
-          "note": "(2 × 7 + 8) : 2 = 11.",
           "n": 23
         },
         {
           "say": "იპოვე რიცხვი.",
-          "answer": "6",
           "lines": 5,
           "center": false,
           "box": true,
           "task": "48 კანფეტი ბავშვებმა თანაბრად გაიყვეს. თითოეულმა 4 შეჭამა და 4 დარჩა. რამდენი ბავშვი იყო?",
-          "note": "თითო ბავშვს 8 კანფეტი შეხვდა. 48 : 8 = 6.",
           "n": 24
         },
         {
           "say": "იპოვე რიცხვი.",
-          "answer": "95",
           "lines": 5,
           "center": false,
           "box": true,
@@ -534,17 +464,14 @@ window.DATA = {
         },
         {
           "say": "იპოვე რიცხვი.",
-          "answer": "16",
           "lines": 5,
           "center": false,
           "box": true,
           "task": "ორი რიცხვის ჯამი 50-ია. დიდი პატარაზე 18-ით მეტია. რამდენია პატარა რიცხვი?",
-          "note": "(50 − 18) : 2 = 16.",
           "n": 26
         },
         {
           "say": "იპოვე გამოტოვებული რიცხვი.",
-          "answer": "15",
           "lines": 6,
           "center": true,
           "box": true,
@@ -553,17 +480,14 @@ window.DATA = {
         },
         {
           "say": "შეავსე უჯრა.",
-          "answer": "3 × a + 6",
           "lines": 5,
           "center": true,
           "box": true,
           "task": "4 × a + □ = 7 × a + 6",
-          "note": "3a + 6-ც სწორია.",
           "n": 28
         },
         {
           "say": "იპოვე გამოტოვებული რიცხვი.",
-          "answer": "4",
           "lines": 6,
           "center": true,
           "box": true,
@@ -572,12 +496,10 @@ window.DATA = {
         },
         {
           "say": "იპოვე გამოტოვებული რიცხვი.",
-          "answer": "8",
           "lines": 6,
           "center": true,
           "box": true,
           "task": "□ × 6 + 12 = 4 × 15",
-          "note": "ჯერ მარჯვენა მხარეა 60. შემდეგ (60 − 12) : 6 = 8.",
           "n": 30
         }
       ]
@@ -586,14 +508,13 @@ window.DATA = {
       "id": "11-easy",
       "para": "11",
       "level": "easy",
-      "kicker": "მარტივი",
+      "kicker": "პირველი",
       "title": "ორ სიდიდეს შორის დამოკიდებულება",
       "standard": "მათ.V.5",
       "about": "ცხრილი, ასოითი ჩანაწერი და სიტყვა: რა იზრდება, რა მცირდება.",
       "items": [
         {
           "say": "შეავსე ცხრილი.",
-          "answer": "4; 5; 8; 13",
           "lines": 2,
           "center": false,
           "box": false,
@@ -620,7 +541,6 @@ window.DATA = {
         },
         {
           "say": "შეავსე ცხრილი.",
-          "answer": "3; 5; 7; 10",
           "lines": 2,
           "center": false,
           "box": false,
@@ -647,7 +567,6 @@ window.DATA = {
         },
         {
           "say": "შეავსე ცხრილი.",
-          "answer": "4; 8; 12; 20",
           "lines": 2,
           "center": false,
           "box": false,
@@ -674,7 +593,6 @@ window.DATA = {
         },
         {
           "say": "შეავსე ცხრილი.",
-          "answer": "2; 4; 5; 8",
           "lines": 2,
           "center": false,
           "box": false,
@@ -701,7 +619,6 @@ window.DATA = {
         },
         {
           "say": "შეავსე ცხრილი.",
-          "answer": "3; 6; 9; 12",
           "lines": 2,
           "center": false,
           "box": false,
@@ -734,7 +651,6 @@ window.DATA = {
         },
         {
           "say": "შეავსე ცხრილი.",
-          "answer": "60; 120; 180; 240",
           "lines": 2,
           "center": false,
           "box": false,
@@ -767,7 +683,6 @@ window.DATA = {
         },
         {
           "say": "შეავსე ცხრილი.",
-          "answer": "33; 34; 35; 36",
           "lines": 2,
           "center": false,
           "box": false,
@@ -800,7 +715,6 @@ window.DATA = {
         },
         {
           "say": "შეავსე ცხრილი.",
-          "answer": "10; 20; 30; 50",
           "lines": 2,
           "center": false,
           "box": false,
@@ -833,7 +747,6 @@ window.DATA = {
         },
         {
           "say": "შეავსე ცხრილი.",
-          "answer": "5; 10; 15; 20",
           "lines": 2,
           "center": false,
           "box": false,
@@ -866,7 +779,6 @@ window.DATA = {
         },
         {
           "say": "შეავსე ცხრილი.",
-          "answer": "10; 13; 16; 18",
           "lines": 2,
           "center": false,
           "box": false,
@@ -899,7 +811,6 @@ window.DATA = {
         },
         {
           "say": "შეავსე ცხრილი.",
-          "answer": "6; 8; 11; 15",
           "lines": 2,
           "center": false,
           "box": false,
@@ -926,7 +837,6 @@ window.DATA = {
         },
         {
           "say": "შეავსე ცხრილი.",
-          "answer": "9; 7; 6; 2",
           "lines": 2,
           "center": false,
           "box": false,
@@ -953,7 +863,6 @@ window.DATA = {
         },
         {
           "say": "შეავსე ცხრილი.",
-          "answer": "6; 8; 12; 14",
           "lines": 2,
           "center": false,
           "box": false,
@@ -980,7 +889,6 @@ window.DATA = {
         },
         {
           "say": "შეავსე ცხრილი.",
-          "answer": "2; 4; 8; 10",
           "lines": 2,
           "center": false,
           "box": false,
@@ -1007,7 +915,6 @@ window.DATA = {
         },
         {
           "say": "შეავსე ცხრილი.",
-          "answer": "1; 4; 7; 10",
           "lines": 2,
           "center": false,
           "box": false,
@@ -1034,7 +941,6 @@ window.DATA = {
         },
         {
           "say": "შეავსე ცხრილი.",
-          "answer": "18; 16; 14; 10",
           "lines": 2,
           "center": false,
           "box": false,
@@ -1061,7 +967,6 @@ window.DATA = {
         },
         {
           "say": "დაწერე: იზრდება ან მცირდება.",
-          "answer": "იზრდება",
           "lines": 2,
           "center": false,
           "box": true,
@@ -1070,7 +975,6 @@ window.DATA = {
         },
         {
           "say": "დაწერე: იზრდება ან მცირდება.",
-          "answer": "მცირდება",
           "lines": 2,
           "center": false,
           "box": true,
@@ -1079,7 +983,6 @@ window.DATA = {
         },
         {
           "say": "დაწერე: ღიავდება ან მუქდება.",
-          "answer": "მუქდება",
           "lines": 2,
           "center": false,
           "box": true,
@@ -1088,7 +991,6 @@ window.DATA = {
         },
         {
           "say": "დაწერე: იზრდება ან მცირდება.",
-          "answer": "მცირდება",
           "lines": 2,
           "center": false,
           "box": true,
@@ -1097,7 +999,6 @@ window.DATA = {
         },
         {
           "say": "დაწერე: იზრდება ან მცირდება.",
-          "answer": "იზრდება",
           "lines": 2,
           "center": false,
           "box": true,
@@ -1106,7 +1007,6 @@ window.DATA = {
         },
         {
           "say": "დაწერე: იზრდება ან მცირდება.",
-          "answer": "მცირდება",
           "lines": 2,
           "center": false,
           "box": true,
@@ -1115,7 +1015,6 @@ window.DATA = {
         },
         {
           "say": "ჩაწერე ასოითი გამოსახულება.",
-          "answer": "n + 7",
           "lines": 3,
           "center": false,
           "box": true,
@@ -1124,7 +1023,6 @@ window.DATA = {
         },
         {
           "say": "ჩაწერე ასოითი გამოსახულება.",
-          "answer": "n − 4",
           "lines": 3,
           "center": false,
           "box": true,
@@ -1133,17 +1031,14 @@ window.DATA = {
         },
         {
           "say": "ჩაწერე ასოითი გამოსახულება.",
-          "answer": "3 × n",
           "lines": 3,
           "center": false,
           "box": true,
           "task": "რიცხვი n-ია. ჩაწერე მისი სამმაგი.",
-          "note": "3n-ც სწორია.",
           "n": 25
         },
         {
           "say": "ჩაწერე ასოითი გამოსახულება.",
-          "answer": "n : 2",
           "lines": 3,
           "center": false,
           "box": true,
@@ -1152,7 +1047,6 @@ window.DATA = {
         },
         {
           "say": "შეავსე ცხრილი.",
-          "answer": "8; 10; 12; 14",
           "lines": 2,
           "center": false,
           "box": false,
@@ -1185,7 +1079,6 @@ window.DATA = {
         },
         {
           "say": "შეავსე ცხრილი.",
-          "answer": "27; 24; 18; 12",
           "lines": 2,
           "center": false,
           "box": false,
@@ -1218,7 +1111,6 @@ window.DATA = {
         },
         {
           "say": "შეავსე ცხრილი.",
-          "answer": "9; 12; 18; 24",
           "lines": 2,
           "center": false,
           "box": false,
@@ -1251,7 +1143,6 @@ window.DATA = {
         },
         {
           "say": "შეავსე ცხრილი.",
-          "answer": "56; 58; 59; 61",
           "lines": 2,
           "center": false,
           "box": false,
@@ -1288,24 +1179,21 @@ window.DATA = {
       "id": "11-hard",
       "para": "11",
       "level": "hard",
-      "kicker": "რთული",
+      "kicker": "მეორე",
       "title": "ორ სიდიდეს შორის დამოკიდებულება",
       "standard": "მათ.V.5",
       "about": "წესი ან საწყისი რიცხვი შედეგიდან უნდა აღადგინო, ხშირად ორი ნაბიჯით.",
       "items": [
         {
           "say": "იპოვე საწყისი რიცხვი.",
-          "answer": "6",
           "lines": 5,
           "center": false,
           "box": true,
           "task": "რიცხვს დაემატა 8, შემდეგ გავამრავლეთ 3-ზე და მივიღეთ 42.",
-          "note": "(6 + 8) × 3 = 42.",
           "n": 1
         },
         {
           "say": "იპოვე საწყისი რიცხვი.",
-          "answer": "29",
           "lines": 5,
           "center": false,
           "box": true,
@@ -1314,7 +1202,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე საწყისი რიცხვი.",
-          "answer": "13",
           "lines": 5,
           "center": false,
           "box": true,
@@ -1323,7 +1210,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე საწყისი რიცხვი.",
-          "answer": "24",
           "lines": 5,
           "center": false,
           "box": true,
@@ -1332,27 +1218,22 @@ window.DATA = {
         },
         {
           "say": "იპოვე საწყისი რიცხვი.",
-          "answer": "18",
           "lines": 5,
           "center": false,
           "box": true,
           "task": "ანა დედაზე 28 წლით უმცროსია. მათი ასაკების ჯამი 64-ია. ანა რამდენი წლისაა?",
-          "note": "(64 − 28) : 2 = 18.",
           "n": 5
         },
         {
           "say": "იპოვე საწყისი რიცხვი.",
-          "answer": "3",
           "lines": 5,
           "center": false,
           "box": true,
           "task": "1 კგ ვაშლი 3 ლარით ძვირია, ვიდრე 1 კგ მსხალი. 2 კგ ვაშლი და 1 კგ მსხალი ჯამში 15 ლარი ღირს. 1 კგ მსხალი რამდენი ლარია?",
-          "note": "მსხალი 3 ლარი, ვაშლი 6. 2 × 6 + 3 = 15.",
           "n": 6
         },
         {
           "say": "იპოვე a.",
-          "answer": "6",
           "lines": 6,
           "center": true,
           "box": true,
@@ -1361,7 +1242,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე n.",
-          "answer": "11",
           "lines": 6,
           "center": true,
           "box": true,
@@ -1370,7 +1250,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე წესი და შეავსე უჯრა.",
-          "answer": "ყოველ 1 რიცხვზე შედეგი 3-ით იზრდება; 20",
           "lines": 3,
           "center": false,
           "box": false,
@@ -1399,12 +1278,10 @@ window.DATA = {
               ]
             ]
           },
-          "note": "6 არის 3-ზე 3-ით მეტი, ამიტომ 11 + 3 × 3 = 20.",
           "n": 9
         },
         {
           "say": "იპოვე წესი და შეავსე უჯრა.",
-          "answer": "ყოველ 1 რიცხვზე შედეგი 3-ით მცირდება; 5",
           "lines": 3,
           "center": false,
           "box": false,
@@ -1433,12 +1310,10 @@ window.DATA = {
               ]
             ]
           },
-          "note": "4-დან 7-მდე სამი ნაბიჯია: 14 − 9 = 5.",
           "n": 10
         },
         {
           "say": "იპოვე წესი და შეავსე უჯრა.",
-          "answer": "3 × რიცხვი + 1; 16",
           "lines": 3,
           "center": false,
           "box": false,
@@ -1471,7 +1346,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე საწყისი რიცხვი.",
-          "answer": "7",
           "lines": 5,
           "center": false,
           "box": true,
@@ -1480,7 +1354,6 @@ window.DATA = {
         },
         {
           "say": "შეავსე ცარიელი უჯრები.",
-          "answer": "4; 23",
           "lines": 3,
           "center": false,
           "box": false,
@@ -1509,12 +1382,10 @@ window.DATA = {
               ]
             ]
           },
-          "note": "ნაბიჯი +4-ია. გამოტოვებული რიცხვია 4, ბოლო შედეგი 23.",
           "n": 13
         },
         {
           "say": "იპოვე წესი და შეავსე უჯრა.",
-          "answer": "ჯამი 40-ია; 29",
           "lines": 3,
           "center": false,
           "box": false,
@@ -1543,12 +1414,10 @@ window.DATA = {
               ]
             ]
           },
-          "note": "8 + 32 = 15 + 25 = 21 + 19 = 40. 40 − 11 = 29.",
           "n": 14
         },
         {
           "say": "შეავსე ცარიელი უჯრები.",
-          "answer": "24; 6",
           "lines": 3,
           "center": false,
           "box": false,
@@ -1577,12 +1446,10 @@ window.DATA = {
               ]
             ]
           },
-          "note": "წიგნი 5 ლარია. 4 წიგნი: 24 ლარი. 34 ლარში 6 წიგნია.",
           "n": 15
         },
         {
           "say": "შეავსე ცარიელი უჯრები.",
-          "answer": "7; 280",
           "lines": 3,
           "center": false,
           "box": false,
@@ -1611,12 +1478,10 @@ window.DATA = {
               ]
             ]
           },
-          "note": "სიჩქარე 35 კმ/სთ. 245 : 35 = 7 საათი. 8 × 35 = 280 კმ.",
           "n": 16
         },
         {
           "say": "იპოვე რიცხვი.",
-          "answer": "32",
           "lines": 5,
           "center": false,
           "box": true,
@@ -1625,7 +1490,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე რიცხვი.",
-          "answer": "21",
           "lines": 5,
           "center": false,
           "box": true,
@@ -1634,7 +1498,6 @@ window.DATA = {
         },
         {
           "say": "იპოვე რიცხვი.",
-          "answer": "5",
           "lines": 4,
           "center": false,
           "box": true,
@@ -1643,37 +1506,30 @@ window.DATA = {
         },
         {
           "say": "იპოვე რიცხვი.",
-          "answer": "14",
           "lines": 5,
           "center": false,
           "box": true,
           "task": "ავტობუსში 30 მგზავრი იყო. გაჩერებაზე რამდენიმე ჩამოვიდა და 6 ჩაჯდა. ავტობუსში 22 მგზავრი დარჩა. რამდენი ჩამოვიდა?",
-          "note": "30 − 14 + 6 = 22.",
           "n": 20
         },
         {
           "say": "იპოვე რიცხვი.",
-          "answer": "44",
           "lines": 5,
           "center": false,
           "box": true,
           "task": "დედა შვილზე 28 წლით უფროსია. ახლა ორივეს ასაკის ჯამი 52-ია და შვილი 12 წლისაა. 4 წლის შემდეგ დედა რამდენი წლის იქნება?",
-          "note": "დედა ახლა 40 წლისაა. 4 წლის შემდეგ 44.",
           "n": 21
         },
         {
           "say": "იპოვე რიცხვი.",
-          "answer": "2",
           "lines": 5,
           "center": false,
           "box": true,
           "task": "24 კანფეტი ჯერ 4 ბავშვზე გაიყო, შემდეგ იმავე 24 კანფეტი 6 ბავშვზე. მეორედ თითო ბავშვზე რამდენით ნაკლები ხვდება?",
-          "note": "6 − 4 = 2.",
           "n": 22
         },
         {
           "say": "შეავსე ცარიელი უჯრები.",
-          "answer": "11; 17",
           "lines": 3,
           "center": false,
           "box": false,
@@ -1702,12 +1558,10 @@ window.DATA = {
               ]
             ]
           },
-          "note": "თითო ნაბიჯზე +2. წესი 2 × x + 3.",
           "n": 23
         },
         {
           "say": "შეავსე ცარიელი უჯრები.",
-          "answer": "18; 9",
           "lines": 3,
           "center": false,
           "box": false,
@@ -1736,22 +1590,18 @@ window.DATA = {
               ]
             ]
           },
-          "note": "თითო ნაბიჯზე −3.",
           "n": 24
         },
         {
           "say": "იპოვე საწყისი რიცხვი.",
-          "answer": "3",
           "lines": 5,
           "center": false,
           "box": true,
           "task": "რიცხვს დავუმატეთ 6, გავამრავლეთ 3-ზე და გამოვაკელით 4. მივიღეთ 23.",
-          "note": "(3 + 6) × 3 − 4 = 23.",
           "n": 25
         },
         {
           "say": "შეავსე ცარიელი უჯრები.",
-          "answer": "7; 36",
           "lines": 3,
           "center": false,
           "box": false,
@@ -1780,12 +1630,10 @@ window.DATA = {
               ]
             ]
           },
-          "note": "პერიმეტრი = გვერდი × 4.",
           "n": 26
         },
         {
           "say": "შეავსე ცარიელი უჯრები.",
-          "answer": "6; 17",
           "lines": 3,
           "center": false,
           "box": false,
@@ -1814,12 +1662,10 @@ window.DATA = {
               ]
             ]
           },
-          "note": "სიგრძე = სიგანე × 2 + 1.",
           "n": 27
         },
         {
           "say": "იპოვე არასწორი წყვილი და გაასწორე.",
-          "answer": "6 და 14. სწორია 6 და 13.",
           "lines": 4,
           "center": false,
           "box": true,
@@ -1828,17 +1674,14 @@ window.DATA = {
         },
         {
           "say": "შემოხაზე ის თანხა, რომლის გადახდაც არ შეიძლება.",
-          "answer": "7 ლარი",
           "lines": 3,
           "center": false,
           "box": true,
           "task": "ბავშვის ბილეთი 3 ლარია, უფროსის 5 ლარი. იყიდება ერთი ან რამდენიმე ბილეთი.\n\n8 ლარი      9 ლარი      7 ლარი      10 ლარი",
-          "note": "3-ისა და 5-ის ჯამით 7 ვერ შედგება.",
           "n": 29
         },
         {
           "say": "უპასუხე კითხვას.",
-          "answer": "2",
           "lines": 4,
           "center": false,
           "box": true,
@@ -1863,7 +1706,6 @@ window.DATA = {
               ]
             ]
           },
-          "note": "ყოველ წუთში 3 გვერდით მცირდება. მე-10 წუთს 2 დარჩება.",
           "n": 30
         }
       ]

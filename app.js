@@ -35,12 +35,6 @@
     go("#/" + set.para + "/" + set.level + "/all");
   }
 
-  function snippet(item) {
-    if (item.task) return item.task.replace(/\s+/g, " ");
-    if (item.table) return "ცხრილი";
-    return item.say;
-  }
-
   function sheet(set, item) {
     const head = el("header", { class: "head" }, [
       el("div", {}, [
@@ -124,8 +118,8 @@
       el("p", { class: "eyebrow", text: "მათემატიკა · V კლასი · 11–12 კვირა" }),
       el("h1", { text: "სავარჯიშოები" }),
       el("p", { class: "lede", text: "თითო გვერდზე თითო სავარჯიშოა. ინსტრუქცია ერთი მოკლე წინადადებაა. ფურცელი საიტიდანვე იბეჭდება." }),
-      el("p", { class: "lede", text: "მარტივ ფურცელზე მოსწავლე პირდაპირ აკეთებს ნაბიჯს. რთულზე შედეგი უკვე წერია და რიცხვამდე ორი ან სამი ნაბიჯით უნდა დაბრუნდეს." }),
-      el("p", { class: "hint", text: "პირველი ეტაპი: §10 და §11. თითო თემაზე 30 მარტივი, 30 რთული და 2 თამაში." }),
+      el("p", { class: "lede", text: "პირველ ფურცელზე მოსწავლე პირდაპირ აკეთებს ნაბიჯს. მეორეზე შედეგი უკვე წერია და რიცხვამდე ორი ან სამი ნაბიჯით უნდა დაბრუნდეს." }),
+      el("p", { class: "hint", text: "პირველი ეტაპი: §10 და §11. თითო თემაზე პირველი 30, მეორე 30 და 2 თამაში." }),
       el("div", { class: "cards" }, cards),
     ]));
   }
@@ -142,7 +136,6 @@
       el("span", { class: "tag " + set.level, text: set.kicker + " · 30" }),
       button("გახსნა", {}, () => go("#/" + set.para + "/" + set.level + "/1")),
       button("ბეჭდვა", { class: "solid" }, () => printAll(set)),
-      button("პასუხები", {}, () => go("#/" + set.para + "/" + set.level + "/answers")),
     ]);
   }
 
@@ -165,7 +158,6 @@
       el("span", { class: "grow" }),
       button("ამ ფურცლის ბეჭდვა", { class: "solid" }, () => window.print()),
       button("30 ფურცელი", {}, () => printAll(set)),
-      button("პასუხები", {}, () => go("#/" + set.para + "/" + set.level + "/answers")),
     ];
 
     app.replaceChildren(
@@ -178,7 +170,6 @@
     document.title = "§" + set.para + " " + set.kicker + " · 30 ფურცელი";
     const tools = [
       button("ბეჭდვა", { class: "solid" }, () => window.print()),
-      button("პასუხები", {}, () => go("#/" + set.para + "/" + set.level + "/answers")),
       el("span", { class: "hint", text: "30 გვერდი, თითო სავარჯიშო ცალკე ფურცელზე." }),
     ];
     app.replaceChildren(
@@ -191,36 +182,6 @@
       if (document.fonts && document.fonts.ready) document.fonts.ready.then(print);
       else print();
     }
-  }
-
-  function renderAnswers(set) {
-    document.title = "პასუხები · §" + set.para + " " + set.kicker;
-    const rows = set.items.map((item) => el("tr", {}, [
-      el("td", { class: "n", text: String(item.n) }),
-      el("td", { text: snippet(item) }),
-      el("td", { class: "ans" }, [
-        item.answer,
-        item.note ? el("span", { class: "note", text: item.note }) : null,
-      ]),
-    ]));
-    const tools = [
-      button("ბეჭდვა", { class: "solid" }, () => window.print()),
-      button("სავარჯიშოები", {}, () => go("#/" + set.para + "/" + set.level + "/1")),
-    ];
-    const key = el("section", { class: "key" }, [
-      el("p", { class: "eyebrow", text: "მასწავლებლისთვის · მოსწავლის ფურცელზე პასუხი არ იბეჭდება" }),
-      el("h1", { text: "§" + set.para + ". " + set.title }),
-      el("p", { text: set.kicker + " · 30 სავარჯიშო. ცხრილის პასუხები მიდის მარცხნიდან მარჯვნივ, ზემოდან ქვემოთ." }),
-      el("table", {}, [
-        el("thead", {}, [el("tr", {}, [
-          el("th", { text: "№" }),
-          el("th", { text: "დავალება" }),
-          el("th", { text: "პასუხი" }),
-        ])]),
-        el("tbody", {}, rows),
-      ]),
-    ]);
-    app.replaceChildren(bar(set, tools), key);
   }
 
   function renderMissing() {
@@ -251,7 +212,6 @@
     }
     const mode = parts[2] || "1";
     if (mode === "all") renderAll(set);
-    else if (mode === "answers") renderAnswers(set);
     else {
       const n = parseInt(mode, 10);
       if (!n || n < 1 || n > set.items.length) renderMissing();
