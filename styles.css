@@ -332,6 +332,116 @@ h1 {
   padding: 48px 0;
 }
 
+.tag.play { color: var(--focus); }
+
+.stage {
+  width: min(760px, calc(100% - 24px));
+  margin: 18px auto 48px;
+  background: var(--paper);
+  border: 1px solid #cfc6b8;
+  border-radius: 16px;
+  padding: 22px 20px 28px;
+}
+
+.say-line {
+  margin: 0;
+  font-weight: 700;
+}
+
+.hud {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.hearts {
+  color: var(--hard);
+  letter-spacing: 2px;
+}
+
+.prompt {
+  margin: 18px 0;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.35;
+  white-space: pre-line;
+}
+
+.prompt.center {
+  text-align: center;
+  font-size: clamp(32px, 6vw, 48px);
+}
+
+.choices {
+  display: grid;
+  gap: 10px;
+}
+
+.choices.two { grid-template-columns: 1fr 1fr; }
+
+.choice {
+  min-height: 68px;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.choice.good {
+  background: #d9f3e4;
+  border-color: var(--easy);
+}
+
+.choice.bad {
+  background: #fde4d8;
+  border-color: var(--hard);
+}
+
+.feedback {
+  min-height: 1.6em;
+  margin: 14px 0 0;
+  text-align: center;
+  font-weight: 700;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.mem {
+  min-height: 96px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.mem.back {
+  background: var(--focus);
+  color: white;
+  font-size: 1.8rem;
+}
+
+.mem.done {
+  background: #d9f3e4;
+  border-color: var(--easy);
+}
+
+.end-title {
+  margin-top: 18px;
+  font-size: 2rem;
+}
+
+.score-line, .stars {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.stars { color: #a36b12; letter-spacing: 3px; }
+
 @media (max-width: 720px) {
   h1 { font-size: 2rem; }
   .task.center { font-size: 32px; }

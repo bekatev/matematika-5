@@ -116,6 +116,7 @@
         el("p", { class: "about", text: easy.about }),
         levelRow(easy),
         levelRow(hard),
+        gameRow(group.para),
       ]);
     });
 
@@ -124,9 +125,16 @@
       el("h1", { text: "სავარჯიშოები" }),
       el("p", { class: "lede", text: "თითო გვერდზე თითო სავარჯიშოა. ინსტრუქცია ერთი მოკლე წინადადებაა. ფურცელი საიტიდანვე იბეჭდება." }),
       el("p", { class: "lede", text: "მარტივ ფურცელზე მოსწავლე პირდაპირ აკეთებს ნაბიჯს. რთულზე შედეგი უკვე წერია და რიცხვამდე ორი ან სამი ნაბიჯით უნდა დაბრუნდეს." }),
-      el("p", { class: "hint", text: "პირველი ეტაპი: §10 და §11, თითო თემაზე 30 მარტივი და 30 რთული." }),
+      el("p", { class: "hint", text: "პირველი ეტაპი: §10 და §11. თითო თემაზე 30 მარტივი, 30 რთული და 2 თამაში." }),
       el("div", { class: "cards" }, cards),
     ]));
+  }
+
+  function gameRow(para) {
+    const games = (window.GAME_LIST || []).filter((game) => game.para === para);
+    return el("div", { class: "row" }, [
+      el("span", { class: "tag play", text: "თამაში" }),
+    ].concat(games.map((game) => button(game.title, {}, () => go("#/play/" + game.id)))));
   }
 
   function levelRow(set) {
@@ -228,6 +236,12 @@
     const parts = (location.hash || "#/").replace(/^#\/?/, "").split("/").filter(Boolean);
     if (parts.length === 0) {
       renderHome();
+      return;
+    }
+    if (parts[0] === "play") {
+      const ok = window.mountGame(app, parts[1], { el: el, button: button, go: go });
+      if (!ok) renderMissing();
+      window.scrollTo(0, 0);
       return;
     }
     const set = find(parts[0], parts[1]);
