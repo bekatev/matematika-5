@@ -382,6 +382,35 @@ h1 {
 
 .choices.two { grid-template-columns: 1fr 1fr; }
 
+.choices.three { grid-template-columns: 1fr 1fr 1fr; }
+
+.track {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.track i {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--focus);
+  display: block;
+}
+
+.track i.done {
+  background: var(--easy);
+  border-color: var(--easy);
+}
+
+.track i.now { background: var(--focus); }
+
+.track i.miss {
+  background: var(--hard);
+  border-color: var(--hard);
+}
+
 .choice {
   min-height: 68px;
   font-size: 1.3rem;
@@ -446,6 +475,7 @@ h1 {
   h1 { font-size: 2rem; }
   .task.center { font-size: 32px; }
   .bar-inner button, .bar-inner select { flex: 1 1 auto; }
+  .choices.three { grid-template-columns: 1fr; }
 }
 
 @page {
