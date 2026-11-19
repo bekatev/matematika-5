@@ -362,6 +362,13 @@ h1 {
   letter-spacing: 2px;
 }
 
+.clock {
+  color: var(--focus);
+  font-variant-numeric: tabular-nums;
+}
+
+.clock.low { color: var(--hard); }
+
 .prompt {
   margin: 18px 0;
   font-size: 1.45rem;

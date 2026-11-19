@@ -119,16 +119,30 @@
       el("h1", { text: "სავარჯიშოები" }),
       el("p", { class: "lede", text: "თითო გვერდზე თითო სავარჯიშოა. ინსტრუქცია ერთი მოკლე წინადადებაა. ფურცელი საიტიდანვე იბეჭდება." }),
       el("p", { class: "lede", text: "პირველ ფურცელზე მოსწავლე პირდაპირ აკეთებს ნაბიჯს. მეორეზე შედეგი უკვე წერია და რიცხვამდე ორი ან სამი ნაბიჯით უნდა დაბრუნდეს." }),
-      el("p", { class: "hint", text: "პირველი ეტაპი: §10 და §11. თითო თემაზე პირველი 30, მეორე 30 და თამაშები." }),
+      el("p", { class: "hint", text: "პირველი ეტაპი: §10 და §11. თითო თემაზე პირველი 30, მეორე 30 და თამაშები. სპრინტი 3 წუთში თავდება." }),
       el("div", { class: "cards" }, cards),
     ]));
   }
 
+  function gameButtons(games) {
+    return games.map((game) => button(game.title, {}, () => go("#/play/" + game.id)));
+  }
+
   function gameRow(para) {
     const games = (window.GAME_LIST || []).filter((game) => game.para === para);
-    return el("div", { class: "row" }, [
-      el("span", { class: "tag play", text: "თამაში" }),
-    ].concat(games.map((game) => button(game.title, {}, () => go("#/play/" + game.id)))));
+    const plain = games.filter((game) => !game.timed);
+    const timed = games.filter((game) => game.timed);
+    const rows = [
+      el("div", { class: "row" }, [
+        el("span", { class: "tag play", text: "თამაში" }),
+      ].concat(gameButtons(plain))),
+    ];
+    if (timed.length) {
+      rows.push(el("div", { class: "row" }, [
+        el("span", { class: "tag play", text: "3 წუთი" }),
+      ].concat(gameButtons(timed))));
+    }
+    return el("div", {}, rows);
   }
 
   function levelRow(set) {
