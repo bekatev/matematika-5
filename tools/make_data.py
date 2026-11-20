@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Build data.js for the grade-5 worksheet site. Paragraphs 10 and 11 only."""
+"""Build data.js for the grade-5 worksheet site. Paragraphs 10, 11 and 12."""
 
 import json
 from pathlib import Path
@@ -303,6 +303,100 @@ def hard_11():
     return items
 
 
+def easy_12():
+    s = "ამოხსენი."
+    items = [
+        ex(s, "8", task="x + 9 = 17", center=True, lines=5),
+        ex(s, "17", task="x − 6 = 11", center=True, lines=5),
+        ex(s, "8", task="3 × x = 24", center=True, lines=5),
+        ex(s, "28", task="x : 4 = 7", center=True, lines=5),
+        ex(s, "28", task="40 − x = 12", center=True, lines=5),
+        ex(s, "25", task="x + 15 = 40", center=True, lines=5),
+        ex(s, "7", task="5 × x = 35", center=True, lines=5),
+        ex(s, "30", task="x : 6 = 5", center=True, lines=5),
+        ex(s, "23", task="x − 9 = 14", center=True, lines=5),
+        ex(s, "8", task="48 : x = 6", center=True, lines=5),
+        ex(s, "7", task="2 × x + 6 = 20", center=True, lines=5),
+        ex(s, "15", task="x : 3 + 4 = 9", center=True, lines=5),
+        ex(s, "7", task="5 × x − 10 = 25", center=True, lines=5),
+        ex(s, "5", task="(x + 4) × 2 = 18", center=True, lines=5),
+        ex(s, "14", task="x : 2 − 3 = 4", center=True, lines=5),
+        ex(s, "5", task="3 × (x + 2) = 21", center=True, lines=5),
+    ]
+    w = "მხოლოდ ჩაწერე განტოლება."
+    items += [
+        ex(w, "x + 8 = 21", task="რიცხვს დაუმატეს 8 და მიიღეს 21.", lines=3),
+        ex(w, "4 × x = 28", task="რიცხვი გაამრავლეს 4-ზე და მიიღეს 28.", lines=3,
+           note="x × 4 = 28-ც სწორია."),
+        ex(w, "x − 6 = 15", task="რიცხვს გამოაკლეს 6 და დარჩა 15.", lines=3),
+        ex(w, "2 × x = 18", task="ორი ერთნაირი რიცხვის ჯამია 18.", lines=3,
+           note="x + x = 18-ც სწორია."),
+        ex(w, "x + (x + 5) = 23", task="პატარა რიცხვია x. დიდი 5-ით მეტია. ჯამი 23-ია.", lines=3,
+           note="2 × x + 5 = 23-ც სწორია."),
+        ex(w, "x − 7 = 13", task="იყო x ლარი. გადაიხადეს 7 ლარი და დარჩა 13.", lines=3),
+    ]
+    c = "დაწერე: კი ან არა."
+    items += [
+        ex(c, "კი", task="x = 6\nx + 8 = 14", center=True, lines=3),
+        ex(c, "არა", task="x = 5\n3 × x − 2 = 11", center=True, lines=3),
+        ex(c, "კი", task="x = 4\n2 × (x + 3) = 14", center=True, lines=3),
+        ex(c, "არა", task="x = 9\nx : 3 + 1 = 5", center=True, lines=3),
+    ]
+    f = "იპოვე რიცხვი."
+    items += [
+        ex(f, "7", task="ნინომ წაიკითხა რამდენიმე გვერდი, გიორგიმ 6-ით მეტი. ერთად 20 გვერდი წაიკითხეს. ნინომ რამდენი წაიკითხა?", lines=5),
+        ex(f, "5", task="4 ერთნაირი რვეული 20 ლარი ღირს. ერთი რვეული რამდენი ლარია?", lines=4),
+        ex(f, "21", task="კალათიდან 8 ვაშლი ამოიღეს და დარჩა 13. თავიდან რამდენი ვაშლი იყო?", lines=4),
+        ex(f, "30", task="რიცხვი გაყვეს 5-ზე და მიიღეს 6. რომელი რიცხვი იყო?", lines=4),
+    ]
+    return items
+
+
+def hard_12():
+    s = "ამოხსენი."
+    items = [
+        ex(s, "6", task="2 × (x + 6) − 4 = 20", center=True, lines=6),
+        ex(s, "7", task="3 × (x − 2) + 5 = 20", center=True, lines=6),
+        ex(s, "10", task="(x + 8) : 2 − 3 = 6", center=True, lines=6),
+        ex(s, "5", task="4 × x + 3 × x − 5 = 30", center=True, lines=6),
+        ex(s, "4", task="100 − (x + 6) × 4 = 60", center=True, lines=6),
+        ex(s, "5", task="2 × (3 × x − 4) = 22", center=True, lines=6),
+        ex(s, "7", task="(2 × x + 6) : 4 = 5", center=True, lines=6),
+        ex(s, "4", task="5 × (x + 1) − 2 × x = 17", center=True, lines=6),
+        ex(s, "15", task="(x : 3 + 4) × 2 = 18", center=True, lines=6),
+        ex(s, "3", task="3 × (2 × x + 1) − 4 = 17", center=True, lines=6),
+    ]
+    f = "იპოვე რიცხვი."
+    items += [
+        ex(f, "20", task="ორი რიცხვის ჯამია 48. მეორე პირველზე 8-ით მეტია. პატარა რიცხვი რამდენია?", lines=5),
+        ex(f, "14", task="დედა შვილზე 24 წლით უფროსია. ასაკების ჯამი 52-ია. შვილი რამდენი წლისაა?", lines=5),
+        ex(f, "7", task="თოკი ორ ნაწილად გაჭრეს. გრძელი ნაწილი მოკლეზე 6 მეტრით მეტია. სულ 20 მეტრია. მოკლე ნაწილი რამდენი მეტრია?", lines=5),
+        ex(f, "12", task="კლასში გოგო 8-ით ნაკლებია ვაჟზე. სულ 32 მოსწავლეა. გოგო რამდენია?", lines=5),
+        ex(f, "6", task="დიდი რიცხვი პატარაზე 3-ჯერ მეტია. ჯამი 24-ია. პატარა რიცხვი რამდენია?", lines=5),
+        ex(f, "12", task="ველოსიპედისტი 3 საათი მიდიოდა. ყოველ მომდევნო საათში 3 კილომეტრით მეტს გადიოდა. სულ 45 კილომეტრი გაიარა. პირველ საათში რამდენი კილომეტრი გაიარა?", lines=5),
+        ex(f, "11", task="4 ერთნაირი წიგნი იყიდა. 50 ლარიდან 6 ლარი დარჩა. ერთი წიგნი რამდენი ლარია?", lines=5),
+        ex(f, "8", task="რიცხვი გავაორმაგეთ, დავუმატეთ 6 და გავყავით 2-ზე. მივიღეთ 11. თავიდან რომელი რიცხვი იყო?", lines=5),
+    ]
+    b = "ფესვი მოცემულია. იპოვე □."
+    items += [
+        ex(b, "4", task="x = 6\n3 × (x + □) = 30", center=True, lines=5),
+        ex(b, "4", task="x = 4\n2 × (x + □) − 3 = 13", center=True, lines=5),
+        ex(b, "8", task="x = 5\n(2 × x + □) : 3 = 6", center=True, lines=5),
+        ex(b, "10", task="x = 7\n4 × x − □ = 18", center=True, lines=5),
+        ex(b, "2", task="x = 3\n5 × (x + □) − 4 = 21", center=True, lines=5),
+        ex(b, "6", task="x = 8\n(x + □) : 2 + 3 = 10", center=True, lines=5),
+    ]
+    items += [
+        ex(f, "7", task="მართკუთხედის ოთხი გვერდის ჯამია 36 სანტიმეტრი. სიგრძე სიგანეზე 4 სანტიმეტრით მეტია. სიგანე რამდენი სანტიმეტრია?", lines=5),
+        ex(f, "15", task="36 კანფეტი გაიყო. ანამ ლაშაზე 6-ით მეტი აიღო. ლაშამ რამდენი კანფეტი აიღო?", lines=5),
+        ex(f, "35", task="ავზიდან ჯერ 12 ლიტრი გამოუშვეს, მერე 5 ლიტრი დაუმატეს. დარჩა 28 ლიტრი. თავიდან რამდენი ლიტრი იყო?", lines=5),
+        ex(f, "5", task="ერთი რიცხვი მეორეზე 3-ჯერ მეტია და კიდევ 2-ით დიდი. ჯამი 22-ია. პატარა რიცხვი რამდენია?", lines=5),
+        ex(f, "5", task="5 ერთნაირი ბილეთი და 4 ლარის წვენი 29 ლარი ღირს. ერთი ბილეთი რამდენი ლარია?", lines=5),
+        ex(f, "6", task="რიცხვს დაუმატეს 4, გაამრავლეს 3-ზე და გამოაკლეს 5. მიიღეს 25. თავიდან რომელი რიცხვი იყო?", lines=5),
+    ]
+    return items
+
+
 def pack(para, level, kicker, title, standard, about, items):
     if len(items) != 30:
         raise SystemExit(f"{para} {level} has {len(items)} items")
@@ -338,6 +432,10 @@ def main():
              "ცხრილი, ასოითი ჩანაწერი და სიტყვა: რა იზრდება, რა მცირდება.", easy_11()),
         pack("11", "hard", "მეორე", "ორ სიდიდეს შორის დამოკიდებულება", "მათ.V.5",
              "წესი ან საწყისი რიცხვი შედეგიდან უნდა აღადგინო, ხშირად ორი ნაბიჯით.", hard_11()),
+        pack("12", "easy", "პირველი", "ამოცანა განტოლების შედგენით", "მათ.V.6",
+             "მარტივი განტოლების ამოხსნა, შედგენა და ფესვის შემოწმება.", easy_12()),
+        pack("12", "hard", "მეორე", "ამოცანა განტოლების შედგენით", "მათ.V.6",
+             "განტოლება ან ამოცანა ორ-სამ ნაბიჯიანია. უცნობი ერთ მხარესაა.", hard_12()),
     ]
     checks = {
         ("10", "easy"): ["16", "24", "14", "42", "5", "8"],
@@ -359,6 +457,56 @@ def main():
     assert by_id["11-hard"]["items"][0]["answer"] == "6"
     assert by_id["11-hard"]["items"][24]["answer"] == "3"
     assert by_id["11-hard"]["items"][29]["answer"] == "2"
+    easy12 = [
+        "8", "17", "8", "28", "28", "25", "7", "30", "23", "8",
+        "7", "15", "7", "5", "14", "5",
+        "x + 8 = 21", "4 × x = 28", "x − 6 = 15", "2 × x = 18",
+        "x + (x + 5) = 23", "x − 7 = 13",
+        "კი", "არა", "კი", "არა",
+        "7", "5", "21", "30",
+    ]
+    hard12_fns = [
+        lambda x: 2 * (x + 6) - 4 == 20,
+        lambda x: 3 * (x - 2) + 5 == 20,
+        lambda x: (x + 8) / 2 - 3 == 6,
+        lambda x: 4 * x + 3 * x - 5 == 30,
+        lambda x: 100 - (x + 6) * 4 == 60,
+        lambda x: 2 * (3 * x - 4) == 22,
+        lambda x: (2 * x + 6) / 4 == 5,
+        lambda x: 5 * (x + 1) - 2 * x == 17,
+        lambda x: (x / 3 + 4) * 2 == 18,
+        lambda x: 3 * (2 * x + 1) - 4 == 17,
+        lambda x: x + (x + 8) == 48,
+        lambda x: x + (x + 24) == 52,
+        lambda x: x + (x + 6) == 20,
+        lambda x: x + (x + 8) == 32,
+        lambda x: x + 3 * x == 24,
+        lambda x: x + (x + 3) + (x + 6) == 45,
+        lambda x: 4 * x + 6 == 50,
+        lambda x: (2 * x + 6) / 2 == 11,
+        lambda blank: 3 * (6 + blank) == 30,
+        lambda blank: 2 * (4 + blank) - 3 == 13,
+        lambda blank: (2 * 5 + blank) / 3 == 6,
+        lambda blank: 4 * 7 - blank == 18,
+        lambda blank: 5 * (3 + blank) - 4 == 21,
+        lambda blank: (8 + blank) / 2 + 3 == 10,
+        lambda x: 2 * (x + (x + 4)) == 36,
+        lambda x: x + (x + 6) == 36,
+        lambda x: x - 12 + 5 == 28,
+        lambda x: x + (3 * x + 2) == 22,
+        lambda x: 5 * x + 4 == 29,
+        lambda x: 3 * (x + 4) - 5 == 25,
+    ]
+    for i, answer in enumerate(easy12):
+        if by_id["12-easy"]["items"][i]["answer"] != answer:
+            raise SystemExit(f"12 easy #{i+1}")
+    for i, check in enumerate(hard12_fns):
+        got = int(by_id["12-hard"]["items"][i]["answer"])
+        if not check(got):
+            raise SystemExit(f"12 hard #{i+1} answer {got}")
+        near = [n for n in (got - 2, got - 1, got + 1, got + 2) if n > 0 and n != got]
+        if any(check(n) for n in near):
+            raise SystemExit(f"12 hard #{i+1} is not unique near {got}")
     for group in sets:
         for item in group["items"]:
             item.pop("answer", None)

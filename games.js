@@ -245,7 +245,7 @@
       const text = String(item);
       if (text !== value && choices.indexOf(text) === -1 && text !== "0") choices.push(text);
     });
-    if (choices.length < 3) throw new Error("პასუხები არ ყოფნის: " + prompt);
+    if (choices.length < 2) throw new Error("პასუხები არ ყოფნის: " + prompt);
     return { prompt: prompt, answer: value, choices: choices.slice(0, 3) };
   }
 
@@ -517,7 +517,97 @@
     ].map((item) => nextItem(item[0], item[1], item[2], item[3])),
   };
 
-  const catalog = [race, pairs, change, rule, cell, train, sprintCompute, sprintSimple, sprintMissing, sprintChange, sprintRule, sprintCell, sprintNext];
+  function rootRound(x, text, check) {
+    return quizItem("x = " + x + "\n" + text, check(x) ? "კი" : "არა", ["კი", "არა"]);
+  }
+
+  const rootGame = {
+    id: "root12",
+    para: "12",
+    title: "ფესვი თუ არა",
+    say: "ჩასვი რიცხვი. ფესვია?",
+    lives: 4,
+    rounds: [
+      [6, "x + 8 = 14", (n) => n + 8 === 14],
+      [5, "3 × x − 2 = 11", (n) => 3 * n - 2 === 11],
+      [4, "2 × (x + 3) = 14", (n) => 2 * (n + 3) === 14],
+      [9, "x : 3 + 1 = 5", (n) => n / 3 + 1 === 5],
+      [7, "2 × x + 5 = 19", (n) => 2 * n + 5 === 19],
+      [8, "(x + 4) : 2 = 5", (n) => (n + 4) / 2 === 5],
+      [3, "4 × (x + 1) − 2 = 14", (n) => 4 * (n + 1) - 2 === 14],
+      [10, "100 − (x + 5) × 4 = 40", (n) => 100 - (n + 5) * 4 === 40],
+      [6, "5 × (x − 1) − 2 × x = 16", (n) => 5 * (n - 1) - 2 * n === 16],
+      [3, "3 × (2 × x + 1) − 4 = 17", (n) => 3 * (2 * n + 1) - 4 === 17],
+    ].map((item) => rootRound(item[0], item[1], item[2])),
+  };
+
+  const eqPairs = {
+    id: "eqpairs",
+    para: "12",
+    title: "განტოლება და ფესვი",
+    say: "შეაბრუნე ორი ბარათი. იპოვე განტოლება და მისი ფესვი.",
+    cards: [
+      ["2 × (x + 3) = 16", "5"],
+      ["3 × x − 4 = 14", "6"],
+      ["(x + 6) : 2 = 8", "10"],
+      ["x : 4 + 3 = 7", "16"],
+      ["2 × x + 8 = 24", "8"],
+      ["(x − 2) × 3 = 15", "7"],
+    ],
+  };
+
+  const sprintEq = {
+    id: "sprinteq",
+    para: "12",
+    title: "განტოლების სპრინტი",
+    say: sprintLead + "ამოხსენი.",
+    seconds: sprintSeconds,
+    center: true,
+    rounds: [
+      ["2 × (x + 5) − 3 = 15", 4, (n) => 2 * (n + 5) - 3 === 15, [9, 6]],
+      ["3 × (x − 1) + 4 = 16", 5, (n) => 3 * (n - 1) + 4 === 16, [4, 12]],
+      ["(x + 4) : 2 + 3 = 9", 8, (n) => (n + 4) / 2 + 3 === 9, [12, 6]],
+      ["5 × x + 2 × x − 4 = 31", 5, (n) => 5 * n + 2 * n - 4 === 31, [7, 35]],
+      ["80 − (x + 3) × 5 = 45", 4, (n) => 80 - (n + 3) * 5 === 45, [7, 35]],
+      ["2 × (3 × x − 1) = 16", 3, (n) => 2 * (3 * n - 1) === 16, [8, 1]],
+      ["(2 × x + 4) : 3 = 6", 7, (n) => (2 * n + 4) / 3 === 6, [14, 18]],
+      ["4 × (x + 2) − x = 23", 5, (n) => 4 * (n + 2) - n === 23, [7, 8]],
+      ["(x : 2 + 3) × 4 = 28", 8, (n) => (n / 2 + 3) * 4 === 28, [4, 7]],
+      ["3 × (x + 4) − 2 × x = 20", 8, (n) => 3 * (n + 4) - 2 * n === 20, [12, 4]],
+      ["(x − 3) × 2 + 7 = 19", 9, (n) => (n - 3) * 2 + 7 === 19, [6, 12]],
+      ["100 − (2 × x + 6) = 70", 12, (n) => 100 - (2 * n + 6) === 70, [24, 30]],
+      ["2 × (x + 1) + 3 × (x + 1) = 25", 4, (n) => 2 * (n + 1) + 3 * (n + 1) === 25, [5, 1]],
+      ["(3 × x − 3) : 2 = 6", 5, (n) => (3 * n - 3) / 2 === 6, [3, 12]],
+      ["5 × (x − 2) + 6 = 21", 5, (n) => 5 * (n - 2) + 6 === 21, [3, 15]],
+      ["(x + 7) × 2 − 5 = 21", 6, (n) => (n + 7) * 2 - 5 === 21, [7, 13]],
+    ].map((item) => unknownItem(item[0], item[1], item[2], item[3])),
+  };
+
+  const sprintStory = {
+    id: "sprintstory",
+    para: "12",
+    title: "ამოცანის სპრინტი",
+    say: sprintLead + "იპოვე რიცხვი.",
+    seconds: sprintSeconds,
+    rounds: [
+      ["ორი რიცხვის ჯამია 36. მეორე პირველზე 4-ით მეტია. პატარა რამდენია?", 16, (n) => n + (n + 4) === 36, [18, 4]],
+      ["მამა შვილზე 28 წლით უფროსია. ასაკების ჯამი 60-ია. შვილი რამდენი წლისაა?", 16, (n) => n + (n + 28) === 60, [28, 32]],
+      ["თოკი 30 მეტრია. გრძელი ნაწილი მოკლეზე 8 მეტრით მეტია. მოკლე ნაწილი რამდენი მეტრია?", 11, (n) => n + (n + 8) === 30, [8, 19]],
+      ["ვაჟი გოგოზე 6-ით მეტია. სულ 28 მოსწავლეა. გოგო რამდენია?", 11, (n) => n + (n + 6) === 28, [17, 6]],
+      ["დიდი რიცხვი პატარის ორჯერია. ჯამი 21-ია. პატარა რამდენია?", 7, (n) => n + 2 * n === 21, [14, 2]],
+      ["3 საათი იარა. ყოველ მომდევნო საათში 2 კმ-ით მეტი. სულ 36 კმ. პირველ საათში რამდენი კმ?", 10, (n) => n + (n + 2) + (n + 4) === 36, [12, 6]],
+      ["3 ერთნაირი წიგნი იყიდა. 26 ლარიდან 5 ლარი დარჩა. ერთი წიგნი რამდენი ლარია?", 7, (n) => 3 * n + 5 === 26, [5, 21]],
+      ["რიცხვი გავაორმაგეთ, გამოვაკელით 4 და გავყავით 2-ზე. მივიღეთ 8. თავიდან რომელი რიცხვი იყო?", 10, (n) => (2 * n - 4) / 2 === 8, [8, 4]],
+      ["ოთხი გვერდის ჯამია 28 სმ. სიგრძე სიგანეზე 2 სმ-ით მეტია. სიგანე რამდენია?", 6, (n) => 2 * (n + (n + 2)) === 28, [8, 2]],
+      ["24 კანფეტი გაიყო. ერთმა 4-ით მეტი აიღო. ნაკლები რამდენი აიღო?", 10, (n) => n + (n + 4) === 24, [14, 4]],
+      ["ჯერ 8 ლიტრი გამოუშვეს, მერე 3 ლიტრი დაუმატეს. დარჩა 20 ლიტრი. თავიდან რამდენი იყო?", 25, (n) => n - 8 + 3 === 20, [20, 5]],
+      ["ერთი რიცხვი მეორეზე 3-ჯერ მეტია და კიდევ 1-ით დიდი. ჯამი 17-ია. პატარა რამდენია?", 4, (n) => n + (3 * n + 1) === 17, [13, 1]],
+      ["4 ბილეთი და 3 ლარის წვენი 23 ლარი ღირს. ერთი ბილეთი რამდენი ლარია?", 5, (n) => 4 * n + 3 === 23, [3, 20]],
+      ["რიცხვს დაუმატეს 2, გაამრავლეს 4-ზე და გამოაკლეს 3. მიიღეს 21. თავიდან რომელი რიცხვი იყო?", 4, (n) => 4 * (n + 2) - 3 === 21, [6, 2]],
+    ].map((item) => unknownItem(item[0], item[1], item[2], item[3])),
+  };
+
+  const catalog = [race, pairs, change, rule, cell, train, sprintCompute, sprintSimple, sprintMissing, sprintChange, sprintRule, sprintCell, sprintNext, rootGame, eqPairs, sprintEq, sprintStory];
   window.GAME_LIST = catalog.map((game) => ({
     id: game.id,
     para: game.para,
@@ -686,15 +776,16 @@
     return "★".repeat(filled) + "☆".repeat(5 - filled);
   }
 
-  function mountPairs(root, api) {
+  function mountPairs(root, api, game) {
     stopClock();
-    const deck = shuffle(pairs.cards.flatMap((pair, index) => [
+    const total = game.cards.length;
+    const deck = shuffle(game.cards.flatMap((pair, index) => [
       { key: index + "a", pair: index, text: pair[0], open: false, done: false },
       { key: index + "b", pair: index, text: pair[1], open: false, done: false },
     ]));
     const state = { open: [], lock: false, moves: 0, found: 0 };
     const stage = api.el("section", { class: "stage" });
-    root.replaceChildren(topBar(api, pairs), stage);
+    root.replaceChildren(topBar(api, game), stage);
 
     function draw() {
       const grid = api.el("div", { class: "cards-grid" });
@@ -710,16 +801,16 @@
         grid.append(node);
       });
       const kids = [
-        api.el("p", { class: "say-line", text: pairs.say }),
+        api.el("p", { class: "say-line", text: game.say }),
         api.el("div", { class: "hud" }, [
           api.el("span", { text: "სვლა: " + state.moves }),
-          api.el("span", { text: "წყვილი: " + state.found + " / 6" }),
+          api.el("span", { text: "წყვილი: " + state.found + " / " + total }),
         ]),
         grid,
       ];
-      if (state.found === 6) {
+      if (state.found === total) {
         kids.push(api.el("h1", { class: "end-title", text: "ყოჩაღ! ყველა წყვილი იპოვე." }));
-        kids.push(api.button("თავიდან", { class: "solid" }, () => mountPairs(root, api)));
+        kids.push(api.button("თავიდან", { class: "solid" }, () => mountPairs(root, api, game)));
       }
       stage.replaceChildren.apply(stage, kids);
     }
@@ -778,14 +869,14 @@
   window.addEventListener("hashchange", stopClock);
 
   window.mountGame = function (root, id, api) {
-    if (id === "pairs") {
-      mountPairs(root, api);
-      document.title = pairs.title;
+    const game = catalog.find((item) => item.id === id);
+    if (!game) return false;
+    document.title = game.title;
+    if (game.cards) {
+      mountPairs(root, api, game);
       return true;
     }
-    const game = catalog.find((item) => item.id === id);
-    if (!game || !game.rounds) return false;
-    document.title = game.title;
+    if (!game.rounds) return false;
     mountQuiz(root, api, game);
     return true;
   };
