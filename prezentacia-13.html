@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>§13 ხარისხი — V კლასი</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700&family=Noto+Serif+Georgian:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1c2430; --muted: #5e6872; --paper: #f6f1e7; --card: #fffdf9; --line: #eadfce;
+  --maroon: #8e2f3c; --teal: #0f7a6e; --gold: #d99a16;
+  --shadow: 0 14px 40px rgba(48, 32, 18, 0.08);
+  --serif: "Noto Serif Georgian", Sylfaen, sans-serif;
+  --sans: "Noto Sans Georgian", Sylfaen, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { background: var(--paper); color: var(--ink); font-family: var(--sans); overflow: hidden; }
+.progress { position: fixed; top: 0; left: 0; right: 0; height: 6px; background: #e7dccb; z-index: 30; }
+.progress > span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--maroon), #e15a42); transition: width .35s ease; }
+.slide { display: none; height: 100vh; height: 100dvh; padding: 36px 92px 78px; }
+.slide.active { display: flex; overflow: auto; }
+.wrap { width: min(1120px, 100%); margin: auto; flex-shrink: 0; display: flex; flex-direction: column; gap: 16px; }
+.mark { font-family: var(--serif); font-weight: 700; color: var(--teal); }
+.eyebrow { margin: 0; color: var(--maroon); font-weight: 700; }
+h1, h2 { font-family: var(--serif); margin: 0; line-height: 1.15; }
+h1 { font-size: clamp(2.4rem, 5vw, 4rem); }
+h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
+.lead, .fine { margin: 0; color: var(--muted); }
+.lead { font-size: 1.25rem; max-width: 46rem; }
+.rule { margin: 0; background: #fff6df; border-left: 6px solid var(--gold); border-radius: 14px; padding: 12px 16px; font-weight: 700; font-size: 1.12rem; }
+.card, .path, .hw { background: var(--card); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); }
+.paths, .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.paths.three { grid-template-columns: repeat(3, 1fr); }
+.path, .hw { padding: 16px 18px; }
+.path .kicker { margin: 0 0 6px; color: var(--muted); font-weight: 700; }
+.eq { font-weight: 700; font-size: clamp(1.45rem, 2.6vw, 2.05rem); line-height: 1.25; }
+.eq sup { font-size: .62em; }
+.tries { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.try { background: white; border: 1px dashed #d9cbb8; border-radius: 14px; padding: 10px 14px; font-size: 1.15rem; font-weight: 700; display: flex; gap: 10px; align-items: center; }
+.btn { font-family: inherit; cursor: pointer; border: 2px solid transparent; background: var(--maroon); color: white; font-weight: 700; font-size: 1.02rem; padding: 10px 16px; border-radius: 999px; }
+.btn.ghost { background: white; color: var(--ink); border-color: var(--line); }
+.btn:focus-visible, .edge:focus-visible, .dot:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.shown { color: var(--teal); font-weight: 700; }
+.hwlist { display: grid; gap: 10px; }
+.hw { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: center; }
+.hw p { margin: 0; font-size: 1.12rem; }
+.hw small { color: var(--muted); font-weight: 600; }
+.n { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--maroon); color: white; font-weight: 700; }
+.symbols { display: flex; flex-wrap: wrap; gap: 10px; }
+.sym { min-width: 92px; background: white; border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; text-align: center; }
+.sym b { display: block; font-size: 1.7rem; line-height: 1; }
+.sym span { color: var(--teal); font-weight: 700; }
+.power { display: flex; align-items: flex-start; justify-content: center; gap: 18px; }
+.bigp { font-size: 5.2rem; font-weight: 700; line-height: .85; letter-spacing: -0.04em; }
+.bigp sup { font-size: .42em; color: var(--maroon); }
+.tags { display: flex; flex-direction: column; gap: 8px; justify-content: center; }
+.tag { background: #f3ebe0; border-radius: 999px; padding: 6px 12px; font-weight: 700; }
+.tag em { font-style: normal; color: var(--maroon); }
+.grid10 { width: 170px; height: 170px; border: 3px solid var(--maroon); background: linear-gradient(#f0d3c8 1px, transparent 1px), linear-gradient(90deg, #f0d3c8 1px, transparent 1px), #fff7f2; background-size: 17px 17px; border-radius: 6px; }
+.cube { width: 120px; height: 120px; position: relative; margin: 18px 28px 8px 8px; }
+.cube i, .cube b, .cube u { position: absolute; display: block; }
+.cube i { width: 86px; height: 86px; left: 18px; top: 28px; background: #f7d7cf; border: 3px solid var(--maroon); }
+.cube b { width: 86px; height: 28px; left: 34px; top: 8px; background: #fff; border: 3px solid var(--maroon); transform: skewX(-38deg); }
+.cube u { width: 28px; height: 86px; left: 96px; top: 16px; background: #e7b7ae; border: 3px solid var(--maroon); transform: skewY(-48deg); }
+.split { display: grid; grid-template-columns: 180px 1fr; gap: 18px; align-items: center; }
+.table { width: 100%; border-collapse: collapse; background: white; border-radius: 16px; overflow: hidden; }
+.table th, .table td { padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--line); }
+.table th { color: var(--muted); font-weight: 700; }
+.table td:first-child { font-weight: 700; }
+.glyphs { display: flex; gap: 18px; flex-wrap: wrap; align-items: flex-end; }
+.glyph { text-align: center; font-weight: 700; }
+.glyph .draw { height: 54px; display: grid; place-items: center; }
+.stroke { width: 6px; height: 42px; background: var(--ink); border-radius: 3px; }
+.arch { width: 36px; height: 28px; border: 5px solid var(--ink); border-bottom: 0; border-radius: 22px 22px 0 0; }
+.coil { width: 34px; height: 34px; border: 5px solid var(--ink); border-radius: 50%; box-shadow: inset 0 0 0 7px var(--paper), inset 0 0 0 11px var(--ink); }
+.group { display: flex; gap: 6px; align-items: flex-end; }
+.footer { position: fixed; left: 0; right: 0; bottom: 0; height: 58px; display: flex; align-items: center; justify-content: space-between; padding: 0 22px 0 78px; background: rgba(246,241,231,.94); border-top: 1px solid var(--line); z-index: 25; color: var(--muted); }
+.footer b { color: var(--ink); }
+.dots { display: flex; gap: 6px; flex-wrap: wrap; max-width: 42vw; }
+.dot { width: 9px; height: 9px; border-radius: 50%; border: 0; padding: 0; background: #d9cdb8; cursor: pointer; }
+.dot.on { background: var(--maroon); transform: scale(1.25); }
+.edge { position: fixed; top: 50%; transform: translateY(-50%); z-index: 26; width: 52px; height: 84px; border: 0; border-radius: 16px; background: rgba(255,255,255,.75); font-size: 2.4rem; cursor: pointer; box-shadow: var(--shadow); }
+.edge.prev { left: 14px; } .edge.next { right: 14px; }
+.edge:disabled { opacity: .25; cursor: default; }
+.note { position: fixed; left: 78px; right: 78px; bottom: 72px; background: var(--ink); color: white; border-radius: 16px; padding: 14px 16px; z-index: 28; display: none; }
+body.show-notes .slide.active .note { display: block; }
+.note small { display: block; color: #f0c36a; font-weight: 700; margin-bottom: 4px; }
+.help { position: fixed; inset: 0; background: rgba(28,36,48,.45); z-index: 40; display: none; place-items: center; }
+.help.open { display: grid; }
+.help article { background: white; border-radius: 20px; padding: 22px 24px; width: min(460px, calc(100% - 40px)); }
+.help h3 { margin: 0 0 8px; font-family: var(--serif); }
+kbd { background: #f3ebe0; border-radius: 6px; padding: 1px 6px; font-family: inherit; font-weight: 700; }
+.bar { text-decoration: overline; text-decoration-thickness: 3px; }
+@media (max-width: 900px) {
+  .pair, .paths, .paths.three, .split { grid-template-columns: 1fr; }
+  .slide { padding: 24px 64px 72px; }
+  .bigp { font-size: 4rem; }
+}
+</style>
+</head>
+<body>
+<div class="progress"><span id="bar"></span></div>
+
+<section class="slide active" data-name="სათაური" data-note="თემა ორი ნაწილია: ხარისხი და რიცხვის ჩაწერის სამი ხერხი. გვ. 104–105.">
+  <div class="wrap">
+    <p class="mark">მათემატიკა, V კლასი · §13</p>
+    <h1>ხარისხი.<br>რიცხვების ჩაწერა</h1>
+    <p class="lead">სახელმძღვანელო, გვ. 104–105. ჯერ ერთნაირ მამრავლებს მოკლედ ჩავწერთ, მერე ვნახავთ, რატომ არის ათობითი ჩანაწერი მოკლე.</p>
+  </div>
+</section>
+
+<section class="slide" data-name="ხარისხი" data-note="აირჩიეთ ერთი რიცხვი, მაგალითად 4. 4·4 უკვე კვადრატია. ჯერ სიტყვა „ხარისხი“ დაუკავშირეთ განმეორებულ გამრავლებას.">
+  <div class="wrap">
+    <p class="eyebrow">გვ. 104</p>
+    <h2>ერთნაირი მამრავლები</h2>
+    <p class="lead">როცა რიცხვი თავის თავზე მრავლდება, ნამრავლს ხარისხით ვწერთ.</p>
+    <div class="paths">
+      <div class="path"><p class="kicker">გრძელი ჩანაწერი</p><div class="eq">a · a</div></div>
+      <div class="path"><p class="kicker">მოკლე ჩანაწერი</p><div class="eq">a<sup>2</sup></div></div>
+    </div>
+    <p class="rule">ზედა პატარა რიცხვი გვეუბნება, რამდენჯერ არის a მამრავლი.</p>
+  </div>
+</section>
+
+<section class="slide" data-name="კვადრატი" data-note="10·10 წაიკითხეთ ორნაირად: „10 მეორე ხარისხში“ და „10-ის კვადრატი“. ბადეში 100 უჯრაა.">
+  <div class="wrap">
+    <p class="eyebrow">გვ. 104</p>
+    <h2>10-ის კვადრატი</h2>
+    <div class="split">
+      <div class="grid10" aria-hidden="true"></div>
+      <div>
+        <div class="eq">10 · 10 = 10<sup>2</sup></div>
+        <p class="lead">იკითხება: „10 მეორე ხარისხში“, ან „10-ის კვადრატი“.</p>
+        <p class="rule">ეს კვადრატი 100 პატარა კვადრატს შეიცავს, ამიტომ 100 = 10<sup>2</sup>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-name="კუბი" data-note="კუბს სამი წახნაგი აქვს თითო წიბოზე 10. 10·10·10 = 1000. სიტყვა „კუბი“ მხოლოდ მესამე ხარისხს ეკუთვნის.">
+  <div class="wrap">
+    <p class="eyebrow">გვ. 104</p>
+    <h2>10-ის კუბი</h2>
+    <div class="split">
+      <div class="cube" aria-hidden="true"><b></b><u></u><i></i></div>
+      <div>
+        <div class="eq">10 · 10 · 10 = 10<sup>3</sup></div>
+        <p class="lead">იკითხება: „10 მესამე ხარისხში“, ან „10-ის კუბი“.</p>
+        <p class="rule">ეს კუბი 1000 პატარა კუბს იტევს, ამიტომ 1000 = 10<sup>3</sup>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-name="ფუძე" data-note="ჯერ წააკითხებინეთ, მერე დაარქვით სახელები. 7 ფუძეა, 4 მაჩვენებელი. მთელ ჩანაწერს ხარისხი ჰქვია.">
+  <div class="wrap">
+    <p class="eyebrow">გვ. 104</p>
+    <h2>ფუძე და მაჩვენებელი</h2>
+    <div class="power">
+      <div class="bigp">7<sup>4</sup></div>
+      <div class="tags">
+        <span class="tag">7 — <em>ფუძე</em></span>
+        <span class="tag">4 — <em>მაჩვენებელი</em></span>
+        <span class="tag">7<sup>4</sup> — <em>ხარისხი</em></span>
+      </div>
+    </div>
+    <p class="rule">7<sup>4</sup> იკითხება „7 მეოთხე ხარისხში“ და ნიშნავს 7 · 7 · 7 · 7.</p>
+  </div>
+</section>
+
+<section class="slide" data-name="მაგალითები" data-note="ჯერ ნამრავლად გაშალონ, მერე გამოთვალონ. 4⁴=256, 5³=125, 2²·3³=4·27=108.">
+  <div class="wrap">
+    <p class="eyebrow">გვ. 104</p>
+    <h2>გაშალე და გამოთვალე</h2>
+    <div class="hwlist">
+      <article class="hw"><span class="n">1</span><p>4<sup>4</sup> = 4 · 4 · 4 · 4 = <button class="btn ghost" data-open="e1" type="button">?</button><span id="e1" class="shown" hidden>256</span></p></article>
+      <article class="hw"><span class="n">2</span><p>5<sup>3</sup> = 5 · 5 · 5 = <button class="btn ghost" data-open="e2" type="button">?</button><span id="e2" class="shown" hidden>125</span></p></article>
+      <article class="hw"><span class="n">3</span><p>2<sup>2</sup> · 3<sup>3</sup> = 4 · 27 = <button class="btn ghost" data-open="e3" type="button">?</button><span id="e3" class="shown" hidden>108</span></p></article>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-name="პირველი" data-note="პირველი ხარისხი თავად რიცხვია: ერთხელ გამრავლება არაფერს ცვლის. 100 000 ხუთი ათეულის ნამრავლია.">
+  <div class="wrap">
+    <p class="eyebrow">გვ. 104</p>
+    <h2>პირველი ხარისხი და 100 000</h2>
+    <div class="paths">
+      <div class="path"><p class="kicker">თვით რიცხვი</p><div class="eq">6<sup>1</sup> = 6</div><p class="fine">10<sup>1</sup> = 10</p></div>
+      <div class="path"><p class="kicker">ხუთჯერ ათი</p><div class="eq">10 · 10 · 10 · 10 · 10</div><p class="fine">100 000 = 10<sup>5</sup></p></div>
+    </div>
+    <p class="rule">რიცხვის პირველი ხარისხი თვით ეს რიცხვია. 100 000 რომ მივიღოთ, 10 თავის თავზე ხუთჯერ უნდა გავამრავლოთ.</p>
+  </div>
+</section>
+
+<section class="slide" data-name="ათის ხარისხები" data-note="ცხრილი თან წაიკითხეთ. მილიონი მეექვსეა, მილიარდი მეცხრე. სახელსა და მაჩვენებელს შორის კავშირი დაამახსოვრებინეთ.">
+  <div class="wrap">
+    <p class="eyebrow">გვ. 104</p>
+    <h2>ათის ხარისხით</h2>
+    <table class="table">
+      <tr><th>რიცხვი</th><th>ხარისხი</th><th>რიცხვი</th><th>ხარისხი</th></tr>
+      <tr><td>10</td><td>10<sup>1</sup></td><td>100 000</td><td>10<sup>5</sup></td></tr>
+      <tr><td>100</td><td>10<sup>2</sup></td><td>მილიონი</td><td>10<sup>6</sup></td></tr>
+      <tr><td>1 000</td><td>10<sup>3</sup></td><td>ათი მილიონი</td><td>10<sup>7</sup></td></tr>
+      <tr><td>10 000</td><td>10<sup>4</sup></td><td>ასი მილიონი</td><td>10<sup>8</sup></td></tr>
+      <tr><td></td><td></td><td>მილიარდი</td><td>10<sup>9</sup></td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="slide" data-name="გაშლა" data-note="ჯერ სახელმძღვანელოს ჩანაწერი აჩვენეთ, მერე იგივე 10-ის ხარისხებით. 8 ცალკე რჩება, რადგან 10⁰ ჯერ არ გვჭირდება.">
+  <div class="wrap">
+    <p class="eyebrow">გვ. 104</p>
+    <h2>გაშლილი ფორმა</h2>
+    <div class="path"><div class="eq">3 548 = 3 · 1 000 + 5 · 100 + 4 · 10 + 8</div></div>
+    <div class="path"><div class="eq">8 453 = 8 · 1 000 + 4 · 100 + 5 · 10 + 3</div></div>
+    <p class="rule">იგივე 10-ის ხარისხებით: 3 548 = 3 · 10<sup>3</sup> + 5 · 10<sup>2</sup> + 4 · 10 + 8.</p>
+  </div>
+</section>
+
+<section class="slide" data-name="ათობითი" data-note="ათი ციფრია, ნულის ჩათვლით. ციფრის ფასი ადგილზეა დამოკიდებული. ამიტომ ჰქვია პოზიციური. ციფრები ინდოეთიდანაა, ევროპაში არაბებმა გაავრცელეს, დაახლოებით 1120 წელს.">
+  <div class="wrap">
+    <p class="eyebrow">გვ. 105</p>
+    <h2>ათობითი სისტემა</h2>
+    <div class="symbols">
+      <div class="sym"><b>0</b><span>ნული</span></div>
+      <div class="sym"><b>1</b><span></span></div>
+      <div class="sym"><b>2</b><span></span></div>
+      <div class="sym"><b>3</b><span></span></div>
+      <div class="sym"><b>4</b><span></span></div>
+      <div class="sym"><b>5</b><span></span></div>
+      <div class="sym"><b>6</b><span></span></div>
+      <div class="sym"><b>7</b><span></span></div>
+      <div class="sym"><b>8</b><span></span></div>
+      <div class="sym"><b>9</b><span></span></div>
+    </div>
+    <p class="rule">ციფრის მნიშვნელობა მის ადგილზეა დამოკიდებული. ასეთ ჩანაწერს პოზიციური ჰქვია.</p>
+  </div>
+</section>
+
+<section class="slide" data-name="რომაული" data-note="შვიდი ნიშანია. დაახლოებით 2500 წლის წინ რომაელებმა შემოიღეს. ნული აქ არ არის. ჯერ მხოლოდ ცხრილი დაიმახსოვრონ.">
+  <div class="wrap">
+    <p class="eyebrow">გვ. 105</p>
+    <h2>რომაული ციფრები</h2>
+    <div class="symbols">
+      <div class="sym"><b>I</b><span>1</span></div>
+      <div class="sym"><b>V</b><span>5</span></div>
+      <div class="sym"><b>X</b><span>10</span></div>
+      <div class="sym"><b>L</b><span>50</span></div>
+      <div class="sym"><b>C</b><span>100</span></div>
+      <div class="sym"><b>D</b><span>500</span></div>
+      <div class="sym"><b>M</b><span>1000</span></div>
+    </div>
+    <p class="lead">ზოგჯერ დღესაც ამ ნიშნებით იწერება რიცხვი, მაგალითად საათზე ან თავის ნომერზე.</p>
+  </div>
+</section>
+
+<section class="slide" data-name="წესი" data-note="მარჯვნივ მდგომი მცირე ან ტოლი ნიშანი ემატება. მარცხნივ მდგომი მცირე აკლდება. XXIV არის 10+10+4, და არა 10+11+5.">
+  <div class="wrap">
+    <p class="eyebrow">გვ. 105</p>
+    <h2>ემატება თუ აკლდება</h2>
+    <div class="paths">
+      <div class="path">
+        <p class="kicker">მარჯვნივ — ემატება</p>
+        <div class="eq">III = 1 + 1 + 1 = 3</div>
+        <p class="fine">XXVI = 10 + 10 + 5 + 1 = 26</p>
+      </div>
+      <div class="path">
+        <p class="kicker">მარცხნივ — აკლდება</p>
+        <div class="eq">IV = 5 − 1 = 4</div>
+        <p class="fine">IX = 10 − 1 = 9</p>
+      </div>
+    </div>
+    <div class="try">XXIV = <button class="btn ghost" data-open="r1" type="button">?</button><span id="r1" class="shown" hidden>10 + 10 + 4 = 24</span></div>
+  </div>
+</section>
+
+<section class="slide" data-name="ხაზი" data-note="ზედა ხაზი ათასჯერ დიდ მნიშვნელობას ნიშნავს. V ხაზით 5000-ია, X ხაზით 10 000. რომაულ სისტემაში 0 არ არის.">
+  <div class="wrap">
+    <p class="eyebrow">გვ. 105</p>
+    <h2>ხაზი ზემოთ</h2>
+    <div class="paths">
+      <div class="path"><p class="kicker">ათასჯერ მეტი</p><div class="eq"><span class="bar">V</span> = 5 · 1000 = 5000</div></div>
+      <div class="path"><p class="kicker">ათი ათასი</p><div class="eq"><span class="bar">X</span> = 10 · 1000 = 10 000</div></div>
+    </div>
+    <div class="try">არის თუ არა 0 რომაულ სისტემაში? <button class="btn ghost" data-open="z1" type="button">?</button><span id="z1" class="shown" hidden>არა</span></div>
+  </div>
+</section>
+
+<section class="slide" data-name="ეგვიპტური" data-note="დაახლოებით 5000 წლის წინ. 345-ს თორმეტი ნიშანი სჭირდება: 3 ასეული, 4 ათეული, 5 ერთეული. ათობითში სამი ციფრი ჰყოფნის.">
+  <div class="wrap">
+    <p class="eyebrow">გვ. 105</p>
+    <h2>ეგვიპტური ნიშნები</h2>
+    <div class="glyphs">
+      <div class="glyph"><div class="draw"><i class="stroke"></i></div>1 · ერთეული</div>
+      <div class="glyph"><div class="draw"><i class="arch"></i></div>10 · ათეული</div>
+      <div class="glyph"><div class="draw"><i class="coil"></i></div>100 · ასეული</div>
+    </div>
+    <p class="rule">345 დაიწერება სამი ხვეულით, ოთხი რკალით და ხუთი ხაზით. ათობითში იგივე რიცხვი სამი ციფრია: 345.</p>
+  </div>
+</section>
+
+<section class="slide" data-name="შედარება" data-note="დასკვნა ერთი წინადადებით: ათობითში ადგილი ცვლის ფასს, ამიტომ დიდი რიცხვიც მოკლედ იწერება და ნულიც გვაქვს.">
+  <div class="wrap">
+    <p class="eyebrow">გვ. 105</p>
+    <h2>რატომ ჯობს ათობითი</h2>
+    <div class="paths three">
+      <div class="path"><p class="kicker">ეგვიპტური</p><p>ყოველ ახალ ჯგუფს თავისი ნიშანი სჭირდება და ნიშანი ბევრჯერ მეორდება.</p></div>
+      <div class="path"><p class="kicker">რომაული</p><p>შვიდი ნიშანია, მაგრამ ადგილი მხოლოდ მიმატება-გამოკლებას ცვლის. 0 არ აქვს.</p></div>
+      <div class="path"><p class="kicker">ათობითი</p><p>ათი ციფრით ნებისმიერი დიდი რიცხვი იწერება, რადგან ადგილი ცვლის მნიშვნელობას.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-name="საშინაო" data-note="პასუხები: 10¹, 10², 10³, 10⁴, 10⁶, 10⁷, 10⁸, 10⁹. 3548 = 3·10³+5·10²+4·10+8. 8453 = 8·10³+4·10²+5·10+3. XXVI=26, IX=9, 24=XXIV. 0 არ არის.">
+  <div class="wrap">
+    <p class="eyebrow">სახლში</p>
+    <h2>საშინაო</h2>
+    <div class="hwlist">
+      <article class="hw"><span class="n">1</span><p>ჩაწერე 10-ის ხარისხით: 10, 100, 1 000, 10 000, მილიონი, ათი მილიონი, ასი მილიონი, მილიარდი.</p></article>
+      <article class="hw"><span class="n">2</span><p>გაშალე 10-ის ხარისხებით: 3 548 და 8 453.</p></article>
+      <article class="hw"><span class="n">3</span><p>გადაიყვანე: XXVI, IX. ჩაწერე 24 რომაულად. ერთი წინადადებით თქვი, რატომ არის ათობითი ჩანაწერი მოკლე.</p></article>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div><b id="footName">სათაური</b></div>
+  <div class="dots" id="dots"></div>
+  <div><span id="footCount"></span> · <button class="btn ghost" id="helpBtn" type="button" style="padding:6px 12px">კლავიშები</button></div>
+</footer>
+<button class="edge prev" id="prev" type="button" aria-label="წინა სლაიდი">‹</button>
+<button class="edge next" id="next" type="button" aria-label="შემდეგი სლაიდი">›</button>
+<div class="help" id="help">
+  <article>
+    <h3>როგორ ვმართოთ</h3>
+    <p><kbd>→</kbd> შემდეგი &nbsp; <kbd>←</kbd> წინა</p>
+    <p><kbd>F</kbd> მთელი ეკრანი &nbsp; <kbd>T</kbd> შენიშვნა</p>
+    <p>პასუხი ღილაკზე იხსნება.</p>
+    <button class="btn" id="helpClose" type="button">გასაგებია</button>
+  </article>
+</div>
+<script>
+const slides = [...document.querySelectorAll(".slide")];
+const bar = document.getElementById("bar");
+const footName = document.getElementById("footName");
+const footCount = document.getElementById("footCount");
+const dots = document.getElementById("dots");
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
+let index = 0;
+slides.forEach((slide, i) => {
+  const note = document.createElement("div");
+  note.className = "note";
+  note.innerHTML = "<small>შენიშვნა</small>" + (slide.dataset.note || "");
+  slide.appendChild(note);
+  const dot = document.createElement("button");
+  dot.className = "dot";
+  dot.type = "button";
+  dot.setAttribute("aria-label", slide.dataset.name);
+  dot.addEventListener("click", (e) => { e.stopPropagation(); show(i); });
+  dots.appendChild(dot);
+});
+function show(i) {
+  index = Math.max(0, Math.min(slides.length - 1, i));
+  slides.forEach((s, n) => s.classList.toggle("active", n === index));
+  footName.textContent = slides[index].dataset.name;
+  footCount.textContent = (index + 1) + " / " + slides.length;
+  bar.style.width = ((index + 1) / slides.length * 100) + "%";
+  [...dots.children].forEach((d, n) => d.classList.toggle("on", n === index));
+  prevBtn.disabled = index === 0;
+  nextBtn.disabled = index === slides.length - 1;
+}
+prevBtn.addEventListener("click", (e) => { e.stopPropagation(); show(index - 1); });
+nextBtn.addEventListener("click", (e) => { e.stopPropagation(); show(index + 1); });
+document.addEventListener("keydown", (e) => {
+  const help = document.getElementById("help");
+  if (e.key === "Escape") { help.classList.remove("open"); return; }
+  if (help.classList.contains("open")) return;
+  if (e.key === "ArrowRight" || e.key === "PageDown" || (e.key === " " && e.target.tagName !== "BUTTON")) { e.preventDefault(); show(index + 1); }
+  else if (e.key === "ArrowLeft" || e.key === "PageUp" || e.key === "Backspace") { e.preventDefault(); show(index - 1); }
+  else if (e.key === "Home") show(0);
+  else if (e.key === "End") show(slides.length - 1);
+  else if (e.key === "f" || e.key === "F") {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+    else document.exitFullscreen?.();
+  } else if (e.key === "t" || e.key === "T") document.body.classList.toggle("show-notes");
+});
+document.querySelectorAll("[data-open]").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    document.getElementById(btn.dataset.open).hidden = false;
+    btn.hidden = true;
+  });
+});
+const help = document.getElementById("help");
+document.getElementById("helpBtn").addEventListener("click", (e) => { e.stopPropagation(); help.classList.add("open"); });
+document.getElementById("helpClose").addEventListener("click", (e) => { e.stopPropagation(); help.classList.remove("open"); });
+help.addEventListener("click", (e) => { if (e.target === help) help.classList.remove("open"); });
+const params = new URLSearchParams(location.search);
+const start = parseInt(params.get("slide") || "1", 10);
+show(Number.isFinite(start) ? start - 1 : 0);
+</script>
+</body>
+</html>
