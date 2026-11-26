@@ -607,7 +607,116 @@
     ].map((item) => unknownItem(item[0], item[1], item[2], item[3])),
   };
 
-  const catalog = [race, pairs, change, rule, cell, train, sprintCompute, sprintSimple, sprintMissing, sprintChange, sprintRule, sprintCell, sprintNext, rootGame, eqPairs, sprintEq, sprintStory];
+  const tower = {
+    id: "tower13",
+    para: "13",
+    title: "ხარისხის კოშკი",
+    say: "გამოთვალე ხარისხი.",
+    center: true,
+    rounds: [
+      ["2²", 4, [2, 8]],
+      ["3²", 9, [6, 12]],
+      ["5²", 25, [10, 15]],
+      ["10²", 100, [20, 1000]],
+      ["2³", 8, [6, 9]],
+      ["4³", 64, [12, 16]],
+      ["5³", 125, [15, 25]],
+      ["10³", 1000, [30, 100]],
+      ["2⁴", 16, [8, 32]],
+      ["6¹", 6, [1, 12]],
+    ].map((item) => quizItem(item[0], item[1], item[2])),
+  };
+
+  const powerPairs = {
+    id: "powerpairs",
+    para: "13",
+    title: "ხარისხი და მნიშვნელობა",
+    say: "შეაბრუნე ორი ბარათი. იპოვე ხარისხი და მისი მნიშვნელობა.",
+    cards: [
+      ["2³", "8"],
+      ["5²", "25"],
+      ["10²", "100"],
+      ["4³", "64"],
+      ["3²", "9"],
+      ["10³", "1000"],
+    ],
+  };
+
+  const romanGate = {
+    id: "roman13",
+    para: "13",
+    title: "რომაული კარი",
+    say: "გადაიყვანე.",
+    center: true,
+    rounds: [
+      ["XII", "12", ["11", "21"]],
+      ["IV", "4", ["6", "9"]],
+      ["IX", "9", ["11", "4"]],
+      ["XXVI", "26", ["16", "24"]],
+      ["XXIV", "24", ["26", "14"]],
+      ["XIX", "19", ["21", "11"]],
+      ["XIV", "14", ["16", "9"]],
+      ["XL", "40", ["60", "15"]],
+      ["15 რომაულად", "XV", ["XIV", "XX"]],
+      ["24 რომაულად", "XXIV", ["XXVI", "XIV"]],
+    ].map((item) => quizItem(item[0], item[1], item[2])),
+  };
+
+  const sprintPower = {
+    id: "sprintpower",
+    para: "13",
+    title: "ხარისხის სპრინტი",
+    say: sprintLead + "იპოვე რიცხვი.",
+    seconds: sprintSeconds,
+    center: true,
+    rounds: [
+      ["□² = 49", 7, (n) => n * n === 49, [8, 6]],
+      ["□³ = 8", 2, (n) => n ** 3 === 8, [4, 3]],
+      ["2-ის რომელი ხარისხია 32?", 5, (n) => 2 ** n === 32, [4, 6]],
+      ["10-ის რომელი ხარისხია 10 000?", 4, (n) => 10 ** n === 10000, [3, 5]],
+      ["□⁴ = 81", 3, (n) => n ** 4 === 81, [9, 4]],
+      ["5-ის რომელი ხარისხია 125?", 3, (n) => 5 ** n === 125, [2, 4]],
+      ["2² × □ = 36", 9, (n) => 4 * n === 36, [8, 6]],
+      ["□ × 10² = 2 500", 25, (n) => n * 100 === 2500, [20, 250]],
+      ["3² × □³ = 72", 2, (n) => 9 * n ** 3 === 72, [3, 8]],
+      ["2³ × 3²", 72, (n) => n === 72, [36, 48]],
+      ["4² × 2³", 128, (n) => n === 128, [64, 32]],
+      ["5² × 2²", 100, (n) => n === 100, [50, 25]],
+      ["10² × 3²", 900, (n) => n === 900, [300, 600]],
+      ["2⁵ თუ 5². მეტის მნიშვნელობა რამდენია?", 32, (n) => n === 32, [25, 10]],
+      ["3³ თუ 2⁴. მეტის მნიშვნელობა რამდენია?", 27, (n) => n === 27, [16, 12]],
+      ["10³ + 4×10²", 1400, (n) => n === 1400, [1040, 400]],
+    ].map((item) => unknownItem(item[0], item[1], item[2], item[3])),
+  };
+
+  const sprintWrite = {
+    id: "sprintwrite",
+    para: "13",
+    title: "ჩაწერის სპრინტი",
+    say: sprintLead + "ჩაწერე რიცხვი.",
+    seconds: sprintSeconds,
+    center: true,
+    rounds: [
+      ["XXIV", 24, [26, 14, 16]],
+      ["XIX", 19, [21, 11, 9]],
+      ["XIV", 14, [16, 9, 6]],
+      ["XL", 40, [60, 15, 50]],
+      ["XXIX", 29, [31, 19, 21]],
+      ["XXXIV", 34, [36, 24, 16]],
+      ["V ზედა ხაზით", 5000, [500, 50, 1000]],
+      ["X ზედა ხაზით", 10000, [1000, 100, 5000]],
+      ["4×10³ + 2×10² + 5", 4205, [4250, 4025, 2450]],
+      ["6×10³ + 8×10 + 3", 6083, [6830, 6803, 863]],
+      ["9×10² + 7", 907, [97, 970, 790]],
+      ["8×10³ + 5", 8005, [805, 850, 85]],
+      ["2×10² + 6", 206, [26, 260, 62]],
+      ["7×10³ + 3×10²", 7300, [7030, 3700, 730]],
+      ["3×10³ + 5×10² + 4×10 + 8", 3548, [3458, 8354, 3540]],
+      ["8×10³ + 4×10² + 5×10 + 3", 8453, [8543, 4853, 8435]],
+    ].map((item) => quizItem(item[0], item[1], item[2])),
+  };
+
+  const catalog = [race, pairs, change, rule, cell, train, sprintCompute, sprintSimple, sprintMissing, sprintChange, sprintRule, sprintCell, sprintNext, rootGame, eqPairs, sprintEq, sprintStory, tower, powerPairs, romanGate, sprintPower, sprintWrite];
   window.GAME_LIST = catalog.map((game) => ({
     id: game.id,
     para: game.para,

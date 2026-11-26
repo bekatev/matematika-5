@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Build data.js for the grade-5 worksheet site. Paragraphs 10, 11 and 12."""
+"""Build data.js for the grade-5 worksheet site. Paragraphs 10, 11, 12 and 13."""
 
 import json
 from pathlib import Path
@@ -397,6 +397,107 @@ def hard_12():
     return items
 
 
+def easy_13():
+    calc = "გამოთვალე."
+    items = [
+        ex(calc, "4", task="2² =", center=True, lines=4),
+        ex(calc, "9", task="3² =", center=True, lines=4),
+        ex(calc, "25", task="5² =", center=True, lines=4),
+        ex(calc, "100", task="10² =", center=True, lines=4),
+        ex(calc, "8", task="2³ =", center=True, lines=4),
+        ex(calc, "64", task="4³ =", center=True, lines=4),
+        ex(calc, "125", task="5³ =", center=True, lines=4),
+        ex(calc, "1000", task="10³ =", center=True, lines=4),
+    ]
+    power = "ჩაწერე ხარისხით."
+    items += [
+        ex(power, "6²", task="6 × 6", center=True, lines=3),
+        ex(power, "4³", task="4 × 4 × 4", center=True, lines=3),
+        ex(power, "2⁴", task="2 × 2 × 2 × 2", center=True, lines=3),
+        ex(power, "10⁴", task="10 × 10 × 10 × 10", center=True, lines=3),
+        ex(power, "7⁵", task="7 × 7 × 7 × 7 × 7", center=True, lines=3),
+        ex(power, "3²", task="3 × 3", center=True, lines=3),
+    ]
+    ten = "ჩაწერე 10-ის ხარისხით."
+    items += [
+        ex(ten, "10²", task="100", center=True, lines=3),
+        ex(ten, "10³", task="1 000", center=True, lines=3),
+        ex(ten, "10⁴", task="10 000", center=True, lines=3),
+        ex(ten, "10⁵", task="100 000", center=True, lines=3),
+        ex(ten, "10⁶", task="მილიონი", center=True, lines=3),
+        ex(ten, "10⁹", task="მილიარდი", center=True, lines=3),
+    ]
+    expand = "გაშალე 10-ის ხარისხებით."
+    items += [
+        ex(expand, "3×10³ + 5×10² + 4×10 + 8", task="3 548", center=True, lines=4),
+        ex(expand, "8×10³ + 4×10² + 5×10 + 3", task="8 453", center=True, lines=4),
+        ex(expand, "2×10² + 6", task="206", center=True, lines=4),
+        ex(expand, "7×10³ + 3×10²", task="7 300", center=True, lines=4),
+    ]
+    arabic = "ჩაწერე ათობითი რიცხვით."
+    items += [
+        ex(arabic, "12", task="XII", center=True, lines=3),
+        ex(arabic, "4", task="IV", center=True, lines=3),
+        ex(arabic, "26", task="XXVI", center=True, lines=3),
+        ex(arabic, "9", task="IX", center=True, lines=3),
+    ]
+    roman = "ჩაწერე რომაული ციფრებით."
+    items += [
+        ex(roman, "XV", task="15", center=True, lines=3),
+        ex(roman, "XXIV", task="24", center=True, lines=3),
+    ]
+    return items
+
+
+def hard_13():
+    blank = "იპოვე □."
+    items = [
+        ex(blank, "7", task="□² = 49", center=True, lines=4),
+        ex(blank, "2", task="□³ = 8", center=True, lines=4),
+        ex("იპოვე მაჩვენებელი.", "5", task="2-ის რომელი ხარისხია 32?", center=True, lines=4),
+        ex("იპოვე მაჩვენებელი.", "5", task="10-ის რომელი ხარისხია 100 000?", center=True, lines=4),
+        ex(blank, "2", task="□⁴ = 16", center=True, lines=4),
+        ex("იპოვე მაჩვენებელი.", "4", task="5-ის რომელი ხარისხია 625?", center=True, lines=4),
+        ex(blank, "12", task="□² = 144", center=True, lines=4),
+        ex("იპოვე მაჩვენებელი.", "4", task="3-ის რომელი ხარისხია 81?", center=True, lines=4),
+        ex(blank, "9", task="2² × □ = 36", center=True, lines=4),
+        ex(blank, "45", task="□ × 10² = 4 500", center=True, lines=4),
+        ex(blank, "2", task="3² × □³ = 72", center=True, lines=5),
+        ex(blank, "3", task="□² × 10 = 90", center=True, lines=4),
+        ex("იპოვე მაჩვენებელი.", "3", task="10-ის რომელ ხარისხს უნდა დაემატოს 4×10², რომ მივიღოთ 1 400?", center=True, lines=5),
+        ex("იპოვე მაჩვენებელი.", "4", task="2-ის რომელ ხარისხს უნდა დაემატოს 3², რომ მივიღოთ 25?", center=True, lines=5),
+    ]
+    calc = "გამოთვალე."
+    items += [
+        ex(calc, "72", task="2³ × 3² =", center=True, lines=5),
+        ex(calc, "128", task="4² × 2³ =", center=True, lines=5),
+        ex(calc, "100", task="5² × 2² =", center=True, lines=5),
+        ex(calc, "900", task="10² × 3² =", center=True, lines=5),
+    ]
+    number = "ჩაწერე რიცხვი."
+    items += [
+        ex(number, "4205", task="4×10³ + 2×10² + 5", center=True, lines=4),
+        ex(number, "6083", task="6×10³ + 8×10 + 3", center=True, lines=4),
+        ex(number, "90401", task="9×10⁴ + 4×10² + 1", center=True, lines=4),
+        ex(number, "7160", task="7×10³ + 10² + 6×10", center=True, lines=4),
+        ex(number, "2003000", task="2×10⁶ + 3×10³", center=True, lines=4),
+        ex(number, "8005", task="8×10³ + 5", center=True, lines=4),
+    ]
+    arabic = "ჩაწერე ათობითი რიცხვით."
+    items += [
+        ex(arabic, "24", task="XXIV", center=True, lines=3),
+        ex(arabic, "19", task="XIX", center=True, lines=3),
+        ex(arabic, "14", task="XIV", center=True, lines=3),
+        ex(arabic, "40", task="XL", center=True, lines=3),
+        ex(arabic, "5000", task="V ზედა ხაზით", center=True, lines=3),
+    ]
+    bigger = "ჩაწერე ის, რომელიც მეტია."
+    items += [
+        ex(bigger, "2⁵", task="2⁵ თუ 5²", center=True, lines=4),
+    ]
+    return items
+
+
 def pack(para, level, kicker, title, standard, about, items):
     if len(items) != 30:
         raise SystemExit(f"{para} {level} has {len(items)} items")
@@ -436,6 +537,10 @@ def main():
              "მარტივი განტოლების ამოხსნა, შედგენა და ფესვის შემოწმება.", easy_12()),
         pack("12", "hard", "მეორე", "ამოცანა განტოლების შედგენით", "მათ.V.6",
              "განტოლება ან ამოცანა ორ-სამ ნაბიჯიანია. უცნობი ერთ მხარესაა.", hard_12()),
+        pack("13", "easy", "პირველი", "ხარისხი და რიცხვების ჩაწერა", "მათ.V.1",
+             "ხარისხის გამოთვლა, 10-ის ხარისხი, გაშლა და რომაული ციფრი.", easy_13()),
+        pack("13", "hard", "მეორე", "ხარისხი და რიცხვების ჩაწერა", "მათ.V.1",
+             "ფუძე, მაჩვენებელი ან რიცხვი შედეგიდან უნდა აღადგინო. ხშირად ორი ნაბიჯია.", hard_13()),
     ]
     checks = {
         ("10", "easy"): ["16", "24", "14", "42", "5", "8"],
@@ -507,6 +612,57 @@ def main():
         near = [n for n in (got - 2, got - 1, got + 1, got + 2) if n > 0 and n != got]
         if any(check(n) for n in near):
             raise SystemExit(f"12 hard #{i+1} is not unique near {got}")
+    easy13 = [
+        "4", "9", "25", "100", "8", "64", "125", "1000",
+        "6²", "4³", "2⁴", "10⁴", "7⁵", "3²",
+        "10²", "10³", "10⁴", "10⁵", "10⁶", "10⁹",
+        "3×10³ + 5×10² + 4×10 + 8", "8×10³ + 4×10² + 5×10 + 3",
+        "2×10² + 6", "7×10³ + 3×10²",
+        "12", "4", "26", "9", "XV", "XXIV",
+    ]
+    hard13_fns = [
+        lambda n: n * n == 49,
+        lambda n: n ** 3 == 8,
+        lambda n: 2 ** n == 32,
+        lambda n: 10 ** n == 100000,
+        lambda n: n ** 4 == 16,
+        lambda n: 5 ** n == 625,
+        lambda n: n * n == 144,
+        lambda n: 3 ** n == 81,
+        lambda n: 4 * n == 36,
+        lambda n: n * 100 == 4500,
+        lambda n: 9 * (n ** 3) == 72,
+        lambda n: n * n * 10 == 90,
+        lambda n: 10 ** n + 400 == 1400,
+        lambda n: 2 ** n + 9 == 25,
+        lambda n: n == 72,
+        lambda n: n == 128,
+        lambda n: n == 100,
+        lambda n: n == 900,
+        lambda n: n == 4205,
+        lambda n: n == 6083,
+        lambda n: n == 90401,
+        lambda n: n == 7160,
+        lambda n: n == 2003000,
+        lambda n: n == 8005,
+        lambda n: n == 24,
+        lambda n: n == 19,
+        lambda n: n == 14,
+        lambda n: n == 40,
+        lambda n: n == 5000,
+    ]
+    for i, answer in enumerate(easy13):
+        if by_id["13-easy"]["items"][i]["answer"] != answer:
+            raise SystemExit(f"13 easy #{i+1}")
+    for i, check in enumerate(hard13_fns):
+        got = int(by_id["13-hard"]["items"][i]["answer"])
+        if not check(got):
+            raise SystemExit(f"13 hard #{i+1} answer {got}")
+        near = [n for n in (got - 2, got - 1, got + 1, got + 2) if n > 0 and n != got]
+        if any(check(n) for n in near):
+            raise SystemExit(f"13 hard #{i+1} is not unique near {got}")
+    if by_id["13-hard"]["items"][29]["answer"] != "2⁵":
+        raise SystemExit("13 hard #30")
     for group in sets:
         for item in group["items"]:
             item.pop("answer", None)

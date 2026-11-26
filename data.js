@@ -2211,6 +2211,508 @@ window.DATA = {
           "n": 30
         }
       ]
+    },
+    {
+      "id": "13-easy",
+      "para": "13",
+      "level": "easy",
+      "kicker": "პირველი",
+      "title": "ხარისხი და რიცხვების ჩაწერა",
+      "standard": "მათ.V.1",
+      "about": "ხარისხის გამოთვლა, 10-ის ხარისხი, გაშლა და რომაული ციფრი.",
+      "items": [
+        {
+          "say": "გამოთვალე.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "2² =",
+          "n": 1
+        },
+        {
+          "say": "გამოთვალე.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "3² =",
+          "n": 2
+        },
+        {
+          "say": "გამოთვალე.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "5² =",
+          "n": 3
+        },
+        {
+          "say": "გამოთვალე.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "10² =",
+          "n": 4
+        },
+        {
+          "say": "გამოთვალე.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "2³ =",
+          "n": 5
+        },
+        {
+          "say": "გამოთვალე.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "4³ =",
+          "n": 6
+        },
+        {
+          "say": "გამოთვალე.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "5³ =",
+          "n": 7
+        },
+        {
+          "say": "გამოთვალე.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "10³ =",
+          "n": 8
+        },
+        {
+          "say": "ჩაწერე ხარისხით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "6 × 6",
+          "n": 9
+        },
+        {
+          "say": "ჩაწერე ხარისხით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "4 × 4 × 4",
+          "n": 10
+        },
+        {
+          "say": "ჩაწერე ხარისხით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "2 × 2 × 2 × 2",
+          "n": 11
+        },
+        {
+          "say": "ჩაწერე ხარისხით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "10 × 10 × 10 × 10",
+          "n": 12
+        },
+        {
+          "say": "ჩაწერე ხარისხით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "7 × 7 × 7 × 7 × 7",
+          "n": 13
+        },
+        {
+          "say": "ჩაწერე ხარისხით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "3 × 3",
+          "n": 14
+        },
+        {
+          "say": "ჩაწერე 10-ის ხარისხით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "100",
+          "n": 15
+        },
+        {
+          "say": "ჩაწერე 10-ის ხარისხით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "1 000",
+          "n": 16
+        },
+        {
+          "say": "ჩაწერე 10-ის ხარისხით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "10 000",
+          "n": 17
+        },
+        {
+          "say": "ჩაწერე 10-ის ხარისხით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "100 000",
+          "n": 18
+        },
+        {
+          "say": "ჩაწერე 10-ის ხარისხით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "მილიონი",
+          "n": 19
+        },
+        {
+          "say": "ჩაწერე 10-ის ხარისხით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "მილიარდი",
+          "n": 20
+        },
+        {
+          "say": "გაშალე 10-ის ხარისხებით.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "3 548",
+          "n": 21
+        },
+        {
+          "say": "გაშალე 10-ის ხარისხებით.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "8 453",
+          "n": 22
+        },
+        {
+          "say": "გაშალე 10-ის ხარისხებით.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "206",
+          "n": 23
+        },
+        {
+          "say": "გაშალე 10-ის ხარისხებით.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "7 300",
+          "n": 24
+        },
+        {
+          "say": "ჩაწერე ათობითი რიცხვით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "XII",
+          "n": 25
+        },
+        {
+          "say": "ჩაწერე ათობითი რიცხვით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "IV",
+          "n": 26
+        },
+        {
+          "say": "ჩაწერე ათობითი რიცხვით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "XXVI",
+          "n": 27
+        },
+        {
+          "say": "ჩაწერე ათობითი რიცხვით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "IX",
+          "n": 28
+        },
+        {
+          "say": "ჩაწერე რომაული ციფრებით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "15",
+          "n": 29
+        },
+        {
+          "say": "ჩაწერე რომაული ციფრებით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "24",
+          "n": 30
+        }
+      ]
+    },
+    {
+      "id": "13-hard",
+      "para": "13",
+      "level": "hard",
+      "kicker": "მეორე",
+      "title": "ხარისხი და რიცხვების ჩაწერა",
+      "standard": "მათ.V.1",
+      "about": "ფუძე, მაჩვენებელი ან რიცხვი შედეგიდან უნდა აღადგინო. ხშირად ორი ნაბიჯია.",
+      "items": [
+        {
+          "say": "იპოვე □.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "□² = 49",
+          "n": 1
+        },
+        {
+          "say": "იპოვე □.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "□³ = 8",
+          "n": 2
+        },
+        {
+          "say": "იპოვე მაჩვენებელი.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "2-ის რომელი ხარისხია 32?",
+          "n": 3
+        },
+        {
+          "say": "იპოვე მაჩვენებელი.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "10-ის რომელი ხარისხია 100 000?",
+          "n": 4
+        },
+        {
+          "say": "იპოვე □.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "□⁴ = 16",
+          "n": 5
+        },
+        {
+          "say": "იპოვე მაჩვენებელი.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "5-ის რომელი ხარისხია 625?",
+          "n": 6
+        },
+        {
+          "say": "იპოვე □.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "□² = 144",
+          "n": 7
+        },
+        {
+          "say": "იპოვე მაჩვენებელი.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "3-ის რომელი ხარისხია 81?",
+          "n": 8
+        },
+        {
+          "say": "იპოვე □.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "2² × □ = 36",
+          "n": 9
+        },
+        {
+          "say": "იპოვე □.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "□ × 10² = 4 500",
+          "n": 10
+        },
+        {
+          "say": "იპოვე □.",
+          "lines": 5,
+          "center": true,
+          "box": true,
+          "task": "3² × □³ = 72",
+          "n": 11
+        },
+        {
+          "say": "იპოვე □.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "□² × 10 = 90",
+          "n": 12
+        },
+        {
+          "say": "იპოვე მაჩვენებელი.",
+          "lines": 5,
+          "center": true,
+          "box": true,
+          "task": "10-ის რომელ ხარისხს უნდა დაემატოს 4×10², რომ მივიღოთ 1 400?",
+          "n": 13
+        },
+        {
+          "say": "იპოვე მაჩვენებელი.",
+          "lines": 5,
+          "center": true,
+          "box": true,
+          "task": "2-ის რომელ ხარისხს უნდა დაემატოს 3², რომ მივიღოთ 25?",
+          "n": 14
+        },
+        {
+          "say": "გამოთვალე.",
+          "lines": 5,
+          "center": true,
+          "box": true,
+          "task": "2³ × 3² =",
+          "n": 15
+        },
+        {
+          "say": "გამოთვალე.",
+          "lines": 5,
+          "center": true,
+          "box": true,
+          "task": "4² × 2³ =",
+          "n": 16
+        },
+        {
+          "say": "გამოთვალე.",
+          "lines": 5,
+          "center": true,
+          "box": true,
+          "task": "5² × 2² =",
+          "n": 17
+        },
+        {
+          "say": "გამოთვალე.",
+          "lines": 5,
+          "center": true,
+          "box": true,
+          "task": "10² × 3² =",
+          "n": 18
+        },
+        {
+          "say": "ჩაწერე რიცხვი.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "4×10³ + 2×10² + 5",
+          "n": 19
+        },
+        {
+          "say": "ჩაწერე რიცხვი.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "6×10³ + 8×10 + 3",
+          "n": 20
+        },
+        {
+          "say": "ჩაწერე რიცხვი.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "9×10⁴ + 4×10² + 1",
+          "n": 21
+        },
+        {
+          "say": "ჩაწერე რიცხვი.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "7×10³ + 10² + 6×10",
+          "n": 22
+        },
+        {
+          "say": "ჩაწერე რიცხვი.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "2×10⁶ + 3×10³",
+          "n": 23
+        },
+        {
+          "say": "ჩაწერე რიცხვი.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "8×10³ + 5",
+          "n": 24
+        },
+        {
+          "say": "ჩაწერე ათობითი რიცხვით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "XXIV",
+          "n": 25
+        },
+        {
+          "say": "ჩაწერე ათობითი რიცხვით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "XIX",
+          "n": 26
+        },
+        {
+          "say": "ჩაწერე ათობითი რიცხვით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "XIV",
+          "n": 27
+        },
+        {
+          "say": "ჩაწერე ათობითი რიცხვით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "XL",
+          "n": 28
+        },
+        {
+          "say": "ჩაწერე ათობითი რიცხვით.",
+          "lines": 3,
+          "center": true,
+          "box": true,
+          "task": "V ზედა ხაზით",
+          "n": 29
+        },
+        {
+          "say": "ჩაწერე ის, რომელიც მეტია.",
+          "lines": 4,
+          "center": true,
+          "box": true,
+          "task": "2⁵ თუ 5²",
+          "n": 30
+        }
+      ]
     }
   ]
 };
