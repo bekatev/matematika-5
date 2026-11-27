@@ -236,6 +236,59 @@ h1 {
 .say.hard { border-left-color: var(--hard); }
 .say.third { border-left-color: var(--third); }
 
+.list-paper {
+  width: min(190mm, calc(100% - 20px));
+  margin: 14px auto 28px;
+  background: var(--paper);
+  color: black;
+  padding: 12mm 14mm 14mm;
+  border: 1px solid #cfc6b8;
+  box-shadow: 0 10px 28px rgba(40, 32, 20, 0.08);
+}
+
+.work-list {
+  margin: 6mm 0 0;
+  padding: 0 0 0 8mm;
+}
+
+.work-list li {
+  margin: 0;
+  padding: 3.5mm 0 3mm;
+  border-bottom: 1px solid #e4dccd;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.work-list li:last-child { border-bottom: 0; }
+
+.list-say {
+  margin: 0;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.list-task {
+  margin: 1.5mm 0 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.35;
+  white-space: pre-line;
+}
+
+.list-answer {
+  margin: 2mm 0 0;
+  font-size: 16px;
+}
+
+.list-answer i {
+  display: inline-block;
+  width: 42mm;
+  border-bottom: 1px solid #111;
+  margin-left: 2mm;
+  height: 1.1em;
+  vertical-align: bottom;
+}
+
 .task {
   margin: 8mm 0 0;
   font-size: 26px;
@@ -507,6 +560,15 @@ h1 {
     page-break-after: always;
   }
   .sheet:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+  .list-paper {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
     break-after: auto;
     page-break-after: auto;
   }

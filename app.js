@@ -113,7 +113,7 @@
         el("p", { class: "about", text: easy.about }),
         levelRow(easy),
         levelRow(hard),
-        third ? levelRow(third) : null,
+        third ? listRow(third) : null,
         gameRow(group.para),
       ]);
     });
@@ -123,7 +123,7 @@
       el("h1", { text: "სავარჯიშოები" }),
       el("p", { class: "lede", text: "თითო გვერდზე თითო სავარჯიშოა. ინსტრუქცია ერთი მოკლე წინადადებაა. ფურცელი საიტიდანვე იბეჭდება." }),
       el("p", { class: "lede", text: "პირველ ფურცელზე მოსწავლე პირდაპირ აკეთებს ნაბიჯს. მეორეზე შედეგი უკვე წერია და რიცხვამდე ორი ან სამი ნაბიჯით უნდა დაბრუნდეს." }),
-      el("p", { class: "hint", text: "§10, §11, §12 და §13. თითო თემაზე პირველი 30, მეორე 30 და თამაშები. §13-ზე მესამე ნაკრებიცაა: 20 ძალიან რთული ფურცელი. სპრინტი 1 წუთსა და 30 წამში თავდება." }),
+      el("p", { class: "hint", text: "§10, §11, §12 და §13. პირველი და მეორე თითო გვერდზეა. §13-ის მესამე 20 ამოცანა ერთ სიაშია. სპრინტი 1 წუთსა და 30 წამში თავდება." }),
       el("p", { class: "hint" }, [
         "§13-ის პრეზენტაცია: ",
         el("a", { href: "prezentacia-13.html" }, ["ხარისხი და რიცხვების ჩაწერა"]),
@@ -159,6 +159,59 @@
       button("გახსნა", {}, () => go("#/" + set.para + "/" + set.level + "/1")),
       button("ბეჭდვა", { class: "solid" }, () => printAll(set)),
     ]);
+  }
+
+  function listRow(set) {
+    return el("div", { class: "row" }, [
+      el("span", { class: "tag " + set.level, text: set.kicker + " · სია · " + set.items.length }),
+      button("გახსნა", {}, () => go("#/" + set.para + "/" + set.level)),
+      button("ბეჭდვა", { class: "solid" }, () => {
+        sessionStorage.setItem("autoprint", "1");
+        go("#/" + set.para + "/" + set.level);
+      }),
+    ]);
+  }
+
+  function listSheet(set) {
+    const head = el("header", { class: "head" }, [
+      el("div", {}, [
+        el("p", { class: "brand", text: "მათემატიკა · V კლასი" }),
+        el("p", { class: "para", text: "§" + set.para + ". " + set.title }),
+      ]),
+      el("p", { class: "num" }, [set.kicker, el("b", { text: String(set.items.length) })]),
+    ]);
+    const meta = el("div", { class: "meta" }, [
+      el("div", {}, ["სახელი: ", el("span")]),
+      el("div", {}, ["თარიღი: ", el("span")]),
+    ]);
+    const items = set.items.map((item) => el("li", {}, [
+      el("p", { class: "list-say", text: item.say }),
+      item.task ? el("p", { class: "list-task", text: item.task }) : null,
+      el("p", { class: "list-answer" }, ["პასუხი:", el("i")]),
+    ]));
+    return el("article", { class: "list-paper" }, [
+      head,
+      meta,
+      el("ol", { class: "work-list" }, items),
+    ]);
+  }
+
+  function renderList(set) {
+    document.title = "§" + set.para + " " + set.kicker + " · სია";
+    const tools = [
+      button("ბეჭდვა", { class: "solid" }, () => window.print()),
+      el("span", { class: "hint", text: set.items.length + " ამოცანა ერთ სიაშია." }),
+    ];
+    app.replaceChildren(
+      bar(set, tools),
+      el("div", { class: "pile" }, [listSheet(set)])
+    );
+    if (sessionStorage.getItem("autoprint") === "1") {
+      sessionStorage.removeItem("autoprint");
+      const print = () => setTimeout(() => window.print(), 150);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(print);
+      else print();
+    }
   }
 
   function renderOne(set, n) {
@@ -230,6 +283,11 @@
     const set = find(parts[0], parts[1]);
     if (!set) {
       renderMissing();
+      return;
+    }
+    if (set.level === "third") {
+      renderList(set);
+      window.scrollTo(0, 0);
       return;
     }
     const mode = parts[2] || "1";
