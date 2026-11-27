@@ -2713,6 +2713,177 @@ window.DATA = {
           "n": 30
         }
       ]
+    },
+    {
+      "id": "13-third",
+      "para": "13",
+      "level": "third",
+      "kicker": "მესამე",
+      "title": "ხარისხი და რიცხვების ჩაწერა",
+      "standard": "მათ.V.1",
+      "about": "ხარისხი, გაშლა და რომაული ჩანაწერი ერთ ამოცანაშია. სამი ნაბიჯი მაინც.",
+      "items": [
+        {
+          "say": "გამოთვალე.",
+          "lines": 6,
+          "center": true,
+          "box": true,
+          "task": "2³ × 5² − 10² =",
+          "n": 1
+        },
+        {
+          "say": "გამოთვალე.",
+          "lines": 6,
+          "center": true,
+          "box": true,
+          "task": "3³ × 2² + 5² =",
+          "n": 2
+        },
+        {
+          "say": "გამოთვალე.",
+          "lines": 6,
+          "center": true,
+          "box": true,
+          "task": "10³ − 4³ × 2 =",
+          "n": 3
+        },
+        {
+          "say": "გამოთვალე.",
+          "lines": 6,
+          "center": true,
+          "box": true,
+          "task": "(10² − 4²) × 2³ =",
+          "n": 4
+        },
+        {
+          "say": "გამოთვალე.",
+          "lines": 6,
+          "center": true,
+          "box": true,
+          "task": "2⁵ × 3² − 4³ =",
+          "n": 5
+        },
+        {
+          "say": "იპოვე მაჩვენებელი.",
+          "lines": 5,
+          "center": true,
+          "box": true,
+          "task": "2-ის ხარისხი გავამრავლეთ 5-ზე და მივიღეთ 160.",
+          "n": 6
+        },
+        {
+          "say": "იპოვე □.",
+          "lines": 5,
+          "center": true,
+          "box": true,
+          "task": "□³ + 10² = 225",
+          "n": 7
+        },
+        {
+          "say": "იპოვე □.",
+          "lines": 5,
+          "center": true,
+          "box": true,
+          "task": "2 × □² + 3² = 41",
+          "n": 8
+        },
+        {
+          "say": "იპოვე □.",
+          "lines": 5,
+          "center": true,
+          "box": true,
+          "task": "□² = 2⁴ × 3²",
+          "n": 9
+        },
+        {
+          "say": "ჩაწერე რიცხვი.",
+          "lines": 5,
+          "center": true,
+          "box": true,
+          "task": "10⁴ − 3×10² + 7",
+          "n": 10
+        },
+        {
+          "say": "ჩაწერე რიცხვი.",
+          "lines": 5,
+          "center": true,
+          "box": true,
+          "task": "2×10³ + 3×10² − 4×10 + 5",
+          "n": 11
+        },
+        {
+          "say": "იპოვე ციფრი.",
+          "lines": 5,
+          "center": true,
+          "box": true,
+          "task": "რიცხვია 3×10³ + 2⁵. ათეულების ციფრი რამდენია?",
+          "n": 12
+        },
+        {
+          "say": "დიდს გამოაკელი პატარა.",
+          "lines": 5,
+          "center": true,
+          "box": true,
+          "task": "2⁷ და 5³",
+          "n": 13
+        },
+        {
+          "say": "ჩაწერე ათობითი რიცხვით.",
+          "lines": 5,
+          "center": true,
+          "box": true,
+          "task": "MCMXLIV",
+          "n": 14
+        },
+        {
+          "say": "ჩაწერე ათობითი რიცხვით.",
+          "lines": 5,
+          "center": true,
+          "box": true,
+          "task": "CMXCIX",
+          "n": 15
+        },
+        {
+          "say": "ჩაწერე ათობითი რიცხვით.",
+          "lines": 5,
+          "center": true,
+          "box": true,
+          "task": "CDXLIV",
+          "n": 16
+        },
+        {
+          "say": "ჩაწერე ათობითი რიცხვით.",
+          "lines": 5,
+          "center": true,
+          "box": true,
+          "task": "V ზედა ხაზით, მერე LIX",
+          "n": 17
+        },
+        {
+          "say": "შედეგი რომაულად ჩაწერე.",
+          "lines": 6,
+          "center": true,
+          "box": true,
+          "task": "5³ × 4 − 10²",
+          "n": 18
+        },
+        {
+          "say": "შედეგი რომაულად ჩაწერე.",
+          "lines": 6,
+          "center": true,
+          "box": true,
+          "task": "10³ − 24",
+          "n": 19
+        },
+        {
+          "say": "რამდენი ნიშანია საჭირო?",
+          "lines": 4,
+          "center": false,
+          "box": true,
+          "task": "999 ეგვიპტურად: 9 ასეული, 9 ათეული და 9 ერთეული.",
+          "n": 20
+        }
+      ]
     }
   ]
 };

@@ -43,7 +43,7 @@
       ]),
       el("p", { class: "num" }, [
         set.kicker,
-        el("b", { text: item.n + " / 30" }),
+        el("b", { text: item.n + " / " + set.items.length }),
       ]),
     ]);
 
@@ -106,12 +106,14 @@
     const cards = groups.map((group) => {
       const easy = find(group.para, "easy");
       const hard = find(group.para, "hard");
+      const third = find(group.para, "third");
       return el("section", { class: "card" }, [
         el("p", { class: "eyebrow", text: "I თავი · §" + group.para + " · " + group.standard }),
         el("h2", { text: easy.title }),
         el("p", { class: "about", text: easy.about }),
         levelRow(easy),
         levelRow(hard),
+        third ? levelRow(third) : null,
         gameRow(group.para),
       ]);
     });
@@ -121,7 +123,7 @@
       el("h1", { text: "სავარჯიშოები" }),
       el("p", { class: "lede", text: "თითო გვერდზე თითო სავარჯიშოა. ინსტრუქცია ერთი მოკლე წინადადებაა. ფურცელი საიტიდანვე იბეჭდება." }),
       el("p", { class: "lede", text: "პირველ ფურცელზე მოსწავლე პირდაპირ აკეთებს ნაბიჯს. მეორეზე შედეგი უკვე წერია და რიცხვამდე ორი ან სამი ნაბიჯით უნდა დაბრუნდეს." }),
-      el("p", { class: "hint", text: "§10, §11, §12 და §13. თითო თემაზე პირველი 30, მეორე 30 და თამაშები. სპრინტი 1 წუთსა და 30 წამში თავდება." }),
+      el("p", { class: "hint", text: "§10, §11, §12 და §13. თითო თემაზე პირველი 30, მეორე 30 და თამაშები. §13-ზე მესამე ნაკრებიცაა: 20 ძალიან რთული ფურცელი. სპრინტი 1 წუთსა და 30 წამში თავდება." }),
       el("p", { class: "hint" }, [
         "§13-ის პრეზენტაცია: ",
         el("a", { href: "prezentacia-13.html" }, ["ხარისხი და რიცხვების ჩაწერა"]),
@@ -153,7 +155,7 @@
 
   function levelRow(set) {
     return el("div", { class: "row" }, [
-      el("span", { class: "tag " + set.level, text: set.kicker + " · 30" }),
+      el("span", { class: "tag " + set.level, text: set.kicker + " · " + set.items.length }),
       button("გახსნა", {}, () => go("#/" + set.para + "/" + set.level + "/1")),
       button("ბეჭდვა", { class: "solid" }, () => printAll(set)),
     ]);
@@ -174,10 +176,10 @@
     const tools = [
       button("← წინა", { disabled: n === 1 }, () => go("#/" + set.para + "/" + set.level + "/" + (n - 1))),
       jump,
-      button("შემდეგი →", { disabled: n === 30 }, () => go("#/" + set.para + "/" + set.level + "/" + (n + 1))),
+      button("შემდეგი →", { disabled: n === set.items.length }, () => go("#/" + set.para + "/" + set.level + "/" + (n + 1))),
       el("span", { class: "grow" }),
       button("ამ ფურცლის ბეჭდვა", { class: "solid" }, () => window.print()),
-      button("30 ფურცელი", {}, () => printAll(set)),
+      button(set.items.length + " ფურცელი", {}, () => printAll(set)),
     ];
 
     app.replaceChildren(
@@ -187,10 +189,10 @@
   }
 
   function renderAll(set) {
-    document.title = "§" + set.para + " " + set.kicker + " · 30 ფურცელი";
+    document.title = "§" + set.para + " " + set.kicker + " · " + set.items.length + " ფურცელი";
     const tools = [
       button("ბეჭდვა", { class: "solid" }, () => window.print()),
-      el("span", { class: "hint", text: "30 გვერდი, თითო სავარჯიშო ცალკე ფურცელზე." }),
+      el("span", { class: "hint", text: set.items.length + " გვერდი, თითო სავარჯიშო ცალკე ფურცელზე." }),
     ];
     app.replaceChildren(
       bar(set, tools),
@@ -243,10 +245,11 @@
   document.addEventListener("keydown", (event) => {
     if (event.metaKey || event.ctrlKey || event.altKey) return;
     if (event.target.closest("input, textarea, select, button")) return;
-    const match = (location.hash || "").match(/^#\/(\d+)\/(easy|hard)\/(\d+)$/);
+    const match = (location.hash || "").match(/^#\/(\d+)\/(easy|hard|third)\/(\d+)$/);
     if (!match) return;
+    const set = find(match[1], match[2]);
     const n = parseInt(match[3], 10);
-    if (event.key === "ArrowRight" && n < 30) go("#/" + match[1] + "/" + match[2] + "/" + (n + 1));
+    if (event.key === "ArrowRight" && set && n < set.items.length) go("#/" + match[1] + "/" + match[2] + "/" + (n + 1));
     if (event.key === "ArrowLeft" && n > 1) go("#/" + match[1] + "/" + match[2] + "/" + (n - 1));
   });
 

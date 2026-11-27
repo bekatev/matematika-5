@@ -498,8 +498,48 @@ def hard_13():
     return items
 
 
-def pack(para, level, kicker, title, standard, about, items):
-    if len(items) != 30:
+def third_13():
+    calc = "გამოთვალე."
+    items = [
+        ex(calc, "100", task="2³ × 5² − 10² =", center=True, lines=6),
+        ex(calc, "133", task="3³ × 2² + 5² =", center=True, lines=6),
+        ex(calc, "872", task="10³ − 4³ × 2 =", center=True, lines=6),
+        ex(calc, "672", task="(10² − 4²) × 2³ =", center=True, lines=6),
+        ex(calc, "224", task="2⁵ × 3² − 4³ =", center=True, lines=6),
+    ]
+    items += [
+        ex("იპოვე მაჩვენებელი.", "5", task="2-ის ხარისხი გავამრავლეთ 5-ზე და მივიღეთ 160.", center=True, lines=5),
+        ex("იპოვე □.", "5", task="□³ + 10² = 225", center=True, lines=5),
+        ex("იპოვე □.", "4", task="2 × □² + 3² = 41", center=True, lines=5),
+        ex("იპოვე □.", "12", task="□² = 2⁴ × 3²", center=True, lines=5),
+    ]
+    number = "ჩაწერე რიცხვი."
+    items += [
+        ex(number, "9707", task="10⁴ − 3×10² + 7", center=True, lines=5),
+        ex(number, "2265", task="2×10³ + 3×10² − 4×10 + 5", center=True, lines=5),
+        ex("იპოვე ციფრი.", "3", task="რიცხვია 3×10³ + 2⁵. ათეულების ციფრი რამდენია?", center=True, lines=5),
+        ex("დიდს გამოაკელი პატარა.", "3", task="2⁷ და 5³", center=True, lines=5),
+    ]
+    arabic = "ჩაწერე ათობითი რიცხვით."
+    items += [
+        ex(arabic, "1944", task="MCMXLIV", center=True, lines=5),
+        ex(arabic, "999", task="CMXCIX", center=True, lines=5),
+        ex(arabic, "444", task="CDXLIV", center=True, lines=5),
+        ex(arabic, "5059", task="V ზედა ხაზით, მერე LIX", center=True, lines=5),
+    ]
+    roman = "შედეგი რომაულად ჩაწერე."
+    items += [
+        ex(roman, "CD", task="5³ × 4 − 10²", center=True, lines=6),
+        ex(roman, "CMLXXVI", task="10³ − 24", center=True, lines=6),
+    ]
+    items += [
+        ex("რამდენი ნიშანია საჭირო?", "27", task="999 ეგვიპტურად: 9 ასეული, 9 ათეული და 9 ერთეული.", lines=4),
+    ]
+    return items
+
+
+def pack(para, level, kicker, title, standard, about, items, count=30):
+    if len(items) != count:
         raise SystemExit(f"{para} {level} has {len(items)} items")
     for i, item in enumerate(items, 1):
         item["n"] = i
@@ -541,6 +581,8 @@ def main():
              "ხარისხის გამოთვლა, 10-ის ხარისხი, გაშლა და რომაული ციფრი.", easy_13()),
         pack("13", "hard", "მეორე", "ხარისხი და რიცხვების ჩაწერა", "მათ.V.1",
              "ფუძე, მაჩვენებელი ან რიცხვი შედეგიდან უნდა აღადგინო. ხშირად ორი ნაბიჯია.", hard_13()),
+        pack("13", "third", "მესამე", "ხარისხი და რიცხვების ჩაწერა", "მათ.V.1",
+             "ხარისხი, გაშლა და რომაული ჩანაწერი ერთ ამოცანაშია. სამი ნაბიჯი მაინც.", third_13(), 20),
     ]
     checks = {
         ("10", "easy"): ["16", "24", "14", "42", "5", "8"],
@@ -663,6 +705,37 @@ def main():
             raise SystemExit(f"13 hard #{i+1} is not unique near {got}")
     if by_id["13-hard"]["items"][29]["answer"] != "2⁵":
         raise SystemExit("13 hard #30")
+    third13 = [
+        lambda n: n == 100,
+        lambda n: n == 133,
+        lambda n: n == 872,
+        lambda n: n == 672,
+        lambda n: n == 224,
+        lambda n: 2 ** n * 5 == 160,
+        lambda n: n ** 3 + 100 == 225,
+        lambda n: 2 * n * n + 9 == 41,
+        lambda n: n * n == 16 * 9,
+        lambda n: n == 9707,
+        lambda n: n == 2265,
+        lambda n: n == 3,
+        lambda n: n == 3,
+        lambda n: n == 1944,
+        lambda n: n == 999,
+        lambda n: n == 444,
+        lambda n: n == 5059,
+    ]
+    third_items = by_id["13-third"]["items"]
+    for i, check in enumerate(third13):
+        got = int(third_items[i]["answer"])
+        if not check(got):
+            raise SystemExit(f"13 third #{i+1} answer {got}")
+        near = [n for n in (got - 2, got - 1, got + 1, got + 2) if n != got and n > 0]
+        if any(check(n) for n in near):
+            raise SystemExit(f"13 third #{i+1} is not unique near {got}")
+    if third_items[17]["answer"] != "CD" or third_items[18]["answer"] != "CMLXXVI":
+        raise SystemExit("13 third roman")
+    if third_items[19]["answer"] != "27":
+        raise SystemExit("13 third egyptian")
     for group in sets:
         for item in group["items"]:
             item.pop("answer", None)

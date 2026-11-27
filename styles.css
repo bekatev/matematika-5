@@ -6,6 +6,7 @@
   --line: #d9d1c3;
   --easy: #146843;
   --hard: #8d3e12;
+  --third: #4c2f78;
   --focus: #1d4e89;
 }
 
@@ -129,6 +130,7 @@ h1 {
 
 .tag.easy { color: var(--easy); }
 .tag.hard { color: var(--hard); }
+.tag.third { color: var(--third); }
 
 .bar {
   position: sticky;
@@ -232,6 +234,7 @@ h1 {
 
 .say.easy { border-left-color: var(--easy); }
 .say.hard { border-left-color: var(--hard); }
+.say.third { border-left-color: var(--third); }
 
 .task {
   margin: 8mm 0 0;
@@ -507,7 +510,7 @@ h1 {
     break-after: auto;
     page-break-after: auto;
   }
-  .say, .say.easy, .say.hard { border-color: #000; }
+  .say, .say.easy, .say.hard, .say.third { border-color: #000; }
   .key {
     width: auto;
     margin: 0;
